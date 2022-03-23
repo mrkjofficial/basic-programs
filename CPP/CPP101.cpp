@@ -1,0 +1,1 @@
+/* 101. Program to find smallest among 10 numbers in an array */
