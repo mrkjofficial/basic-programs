@@ -48,7 +48,7 @@ int main()
 void randomize(int array[], int min, int max, int size)
 {
     int value;
-    // srand(time(0));
+    srand(time(0));
     for (int i = 0; i < size; i++)
     {
         value = (rand() % (max + 1 - min)) + min;
