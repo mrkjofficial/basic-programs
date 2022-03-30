@@ -29,76 +29,54 @@ int main()
 {
     int side, length, breadth, choice;
     float base, height, radius;
-    while (1)
+    while (true)
     {
-        system("cls");
-        cout << "#################### AREA CALCULATOR ####################" << endl
-             << endl;
-        cout << "Select your shape:" << endl
-             << endl;
+        cout << endl;
+        cout << "Select your shape:" << endl;
+        cout << endl;
         cout << "1) Square" << endl;
         cout << "2) Rectangle" << endl;
         cout << "3) Triangle" << endl;
         cout << "4) Circle" << endl;
-        cout << "5) Exit" << endl
-             << endl;
+        cout << "5) Exit" << endl;
+        cout << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         switch (choice)
         {
         case 1:
-            system("cls");
-            cout << "#################### AREA CALCULATOR ####################" << endl
-                 << endl;
+            cout << endl;
             cout << "Enter the side of a Square: ";
             cin >> side;
+            cout << endl;
             cout << "Area: " << measure::area(side) << endl;
-            cout << "Press Any Key To Exit...";
-            cin.sync();
-            cin.get();
             break;
         case 2:
-            system("cls");
-            cout << "#################### AREA CALCULATOR ####################" << endl
-                 << endl;
+            cout << endl;
             cout << "Enter the length & breadth of a Rectangle: ";
             cin >> length >> breadth;
+            cout << endl;
             cout << "Area: " << measure::area(length, breadth) << endl;
-            cout << "Press Any Key To Exit...";
-            cin.sync();
-            cin.get();
             break;
         case 3:
-            system("cls");
-            cout << "#################### AREA CALCULATOR ####################" << endl
-                 << endl;
+            cout << endl;
             cout << "Enter the base & height of a Triangle: ";
             cin >> base >> height;
+            cout << endl;
             cout << "Area: " << measure::area(base, height) << endl;
-            cout << "Press Any Key To Exit...";
-            cin.sync();
-            cin.get();
             break;
         case 4:
-            system("cls");
-            cout << "#################### AREA CALCULATOR ####################" << endl
-                 << endl;
+            cout << endl;
             cout << "Enter the radius of a Circle: ";
             cin >> radius;
+            cout << endl;
             cout << "Area: " << measure::area(radius) << endl;
-            cout << "Press Any Key To Exit...";
-            cin.sync();
-            cin.get();
             break;
         case 5:
-            exit(1);
+            exit(0);
         default:
-            system("cls");
-            cout << "#################### AREA CALCULATOR ####################" << endl
-                 << endl;
-            cout << "Invalid Input!";
-            cin.sync();
-            cin.get();
+            cout << endl;
+            cout << "Invalid Input!" << endl;
         }
     }
 }

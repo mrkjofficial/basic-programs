@@ -3,11 +3,8 @@
 #include <iostream>
 #include <conio.h>
 #define UNAME "admin"
-#define PASS "admin"
+#define PASS "12345"
 using namespace std;
-
-void menu();
-string getPassword();
 
 class student
 {
@@ -42,65 +39,64 @@ public:
     void editRecord()
     {
         int choice;
-        while (1)
+        while (true)
         {
-            system("cls");
-            cout << "#################### | EDIT RECORD | ####################" << endl
-                 << endl;
+            cout << endl;
+            cout << "Choose your Option:" << endl;
+            cout << endl;
             cout << "1) Name:            " << name << endl;
             cout << "2) Gender:          " << gender << endl;
             cout << "3) Email:           " << email << endl;
             cout << "4) Mobile No.:      " << mobNo << endl;
             cout << "5) Address:         " << address << endl;
-            cout << "6) Back" << endl
-                 << endl;
+            cout << "6) Back" << endl;
+            cout << endl;
             cout << "Enter your choice: ";
             cin >> choice;
             switch (choice)
             {
             case 1:
-                cout << "\nEnter Student's Name: ";
+                cout << endl;
+                cout << "Enter Student's Name: ";
                 cin.sync();
                 getline(cin, name);
-                cout << "\nName Updated Successfully!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "Name Updated Successfully!" << endl;
                 break;
             case 2:
-                cout << "\nEnter Student's Gender (Ex: Male/Female): ";
+                cout << endl;
+                cout << "Enter Student's Gender (Ex: Male/Female): ";
                 cin >> gender;
-                cout << "\nGender Updated Successfully!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "Gender Updated Successfully!" << endl;
                 break;
             case 3:
-                cout << "\nEnter Student's Email (Ex: example@example.com): ";
+                cout << endl;
+                cout << "Enter Student's Email (Ex: example@example.com): ";
                 cin >> email;
-                cout << "\nEmail Updated Successfully!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "Email Updated Successfully!" << endl;
                 break;
             case 4:
-                cout << "\nEnter Student's Mobile No. (Ex: 9876543210): ";
+                cout << endl;
+                cout << "Enter Student's Mobile No. (Ex: 9876543210): ";
                 cin >> mobNo;
-                cout << "\nMobile No. Updated Successfully!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "Mobile No. Updated Successfully!" << endl;
                 break;
             case 5:
-                cout << "\nEnter Student's Address: ";
+                cout << endl;
+                cout << "Enter Student's Address: ";
                 cin.sync();
                 getline(cin, address);
-                cout << "\nEmail Updated Successfully!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "Address Updated Successfully!" << endl;
                 break;
             case 6:
                 return;
             default:
-                cout << "\nInvalid Option!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "Invalid Option!" << endl;
             }
         }
     }
@@ -115,236 +111,196 @@ public:
         address = std.address;
     }
 
-    void viewRecord()
+    void viewRecord(int i = 0)
     {
-        system("cls");
-        cout << "#################### | VIEW RECORD | ####################" << endl
-             << endl;
+        i = i == 0 ? rollNo : i;
+        cout << endl;
+        cout << "STUDENT: " << i << endl;
+        cout << endl;
         cout << "Roll No.:        " << rollNo << endl;
         cout << "Name:            " << name << endl;
         cout << "Gender:          " << gender << endl;
         cout << "Email:           " << email << endl;
         cout << "Mobile No.:      " << mobNo << endl;
-        cout << "Address:         " << address << endl
-             << endl;
-    }
-
-    void viewAllRecord(int i)
-    {
-        cout << "| STUDENT: " << i << " |" << endl
-             << endl;
-        cout << "Roll No.:        " << rollNo << endl;
-        cout << "Name:            " << name << endl;
-        cout << "Gender:          " << gender << endl;
-        cout << "Email:           " << email << endl;
-        cout << "Mobile No.:      " << mobNo << endl;
-        cout << "Address:         " << address << endl
-             << endl;
+        cout << "Address:         " << address << endl;
     }
 };
+
+void menu();
+int searchRecords(student[], int, int);
+void deleteRecords(student[], int, int);
+void viewRecords(student[], int);
+string getPassword();
 
 int main()
 {
     string uname, pword;
-    while (1)
+    while (true)
     {
-        system("cls");
-        cout << "#################### | LOGIN | ####################" << endl
-             << endl;
+        cout << endl;
         cout << "USERNAME: ";
         cin >> uname;
+        cout << endl;
         cout << "PASSWORD: ";
         pword = getPassword();
         if (uname == UNAME && pword == PASS)
         {
+            cout << endl;
             menu();
         }
         else
         {
-            cout << "\nInvalid Credentials!";
-            cin.sync();
-            cin.get();
+            cout << endl;
+            cout << "Invalid Credentials!" << endl;
         }
     }
 }
 
 void menu()
 {
-    int choice, index = 0, rollNo, sindex, size;
-    system("cls");
-    cout << "#################### | STUDENT INFORMATION SYSTEM | ####################" << endl
-         << endl;
+    int choice, index = 0, rollNo, sIndex, size;
     cout << "Enter the Class Strength: ";
     cin >> size;
     student stud[size];
-    while (1)
+    while (true)
     {
-        system("cls");
-        cout << "#################### | STUDENT INFORMATION SYSTEM | ####################" << endl
-             << endl;
+        cout << endl;
+        cout << "Choose your Option:" << endl;
+        cout << endl;
         cout << "1) Add Record" << endl;
         cout << "2) Edit Record" << endl;
         cout << "3) Delete Record" << endl;
         cout << "4) View Record" << endl;
         cout << "5) View All Records" << endl;
-        cout << "6) Exit\n"
-             << endl;
+        cout << "6) Exit" << endl;
+        cout << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         switch (choice)
         {
         case 1:
-            system("cls");
-            cout << "#################### | ADD RECORD | ####################" << endl
-                 << endl;
             if (index < size)
             {
-                while (1)
+                while (true)
                 {
-                    system("cls");
-                    cout << "#################### | ADD RECORD | ####################" << endl
-                         << endl;
+                    cout << endl;
                     cout << "Enter Student's Roll No.: ";
                     cin >> rollNo;
-                    for (sindex = 0; sindex < index; sindex++)
+                    sIndex = searchRecords(stud, rollNo, index);
+                    if (sIndex != -1)
                     {
-                        if (stud[sindex].getRoll() == rollNo)
-                        {
-                            break;
-                        }
-                    }
-                    if (sindex == index)
-                    {
-                        break;
+                        cout << endl;
+                        cout << "Roll No. Already Exists!" << endl;
                     }
                     else
                     {
-                        cout << "Roll No. Already Exists!";
-                        cin.sync();
-                        cin.get();
+                        break;
                     }
                 }
                 stud[index].addRecord(rollNo);
                 index++;
-                cout << "\nRecord Added Successfully!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "Record Added Successfully!" << endl;
             }
             else
             {
-                cout << "\nStorage Full!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "Storage Full!" << endl;
             }
             break;
         case 2:
-            system("cls");
-            cout << "#################### | EDIT RECORD | ####################" << endl
-                 << endl;
+            cout << endl;
             cout << "Enter Student's Roll No.: ";
             cin >> rollNo;
-            for (sindex = 0; sindex < index; sindex++)
+            sIndex = searchRecords(stud, rollNo, index);
+            if (sIndex != -1)
             {
-                if (stud[sindex].getRoll() == rollNo)
-                {
-                    break;
-                }
-            }
-            if (sindex == index)
-            {
-                cout << "\nNo Record Found!";
-                cin.sync();
-                cin.get();
+                stud[sIndex].editRecord();
             }
             else
             {
-                stud[sindex].editRecord();
+                cout << endl;
+                cout << "No Record Found!" << endl;
             }
             break;
         case 3:
-            system("cls");
-            cout << "#################### | DELETE RECORD | ####################" << endl
-                 << endl;
+            cout << endl;
             cout << "Enter Student's Roll No.: ";
             cin >> rollNo;
-            for (sindex = 0; sindex < index; sindex++)
+            sIndex = searchRecords(stud, rollNo, index);
+            if (sIndex != -1)
             {
-                if (stud[sindex].getRoll() == rollNo)
-                {
-                    break;
-                }
-            }
-            if (sindex == index)
-            {
-                cout << "\nNo Record Found!";
-                cin.sync();
-                cin.get();
+                deleteRecords(stud, sIndex, index);
+                index--;
+                cout << endl;
+                cout << "Record Deleted Successfully!" << endl;
             }
             else
             {
-                for (sindex; sindex < index - 1; sindex++)
-                {
-                    stud[sindex].deleteRecord(stud[sindex + 1]);
-                }
-                index--;
-                cout << "\nRecord Deleted Successfully!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "No Record Found!" << endl;
             }
             break;
         case 4:
-            system("cls");
-            cout << "#################### | VIEW RECORD | ####################" << endl
-                 << endl;
+            cout << endl;
             cout << "Enter Student's Roll No.: ";
             cin >> rollNo;
-            for (sindex = 0; sindex < index; sindex++)
+            sIndex = searchRecords(stud, rollNo, index);
+            if (sIndex != -1)
             {
-                if (stud[sindex].getRoll() == rollNo)
-                {
-                    break;
-                }
-            }
-            if (sindex == index)
-            {
-                cout << "\nNo Record Found!";
-                cin.sync();
-                cin.get();
+                stud[sIndex].viewRecord();
             }
             else
             {
-                stud[sindex].viewRecord();
-                cout << "Press Any Key To Exit...";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "No Record Found!" << endl;
             }
             break;
         case 5:
-            system("cls");
-            cout << "#################### | VIEW ALL RECORDS | ####################" << endl
-                 << endl;
             if (index == 0)
             {
-                cout << "\nNo Records Found!";
-                cin.sync();
-                cin.get();
+                cout << endl;
+                cout << "No Record Found!" << endl;
                 break;
             }
-            for (sindex = 0; sindex < index; sindex++)
-            {
-                stud[sindex].viewAllRecord(sindex + 1);
-            }
-            cout << "Press Any Key To Exit...";
-            cin.sync();
-            cin.get();
+            viewRecords(stud, index);
             break;
         case 6:
             exit(0);
         default:
-            cout << "\nInvalid Option!";
-            cin.sync();
-            cin.get();
+            cout << endl;
+            cout << "Invalid Option!" << endl;
         }
+    }
+}
+
+int searchRecords(student stud[], int rollNo, int size)
+{
+    int index = -1;
+    for (int i = 0; i < size; i++)
+    {
+        if (stud[i].getRoll() == rollNo)
+        {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
+void deleteRecords(student stud[], int sIndex, int size)
+{
+    for (sIndex; sIndex < size - 1; sIndex++)
+    {
+        stud[sIndex].deleteRecord(stud[sIndex + 1]);
+    }
+}
+
+void viewRecords(student stud[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        stud[i].viewRecord(i + 1);
     }
 }
 
@@ -370,7 +326,8 @@ string getPassword()
         }
         else if (c == 13)
         {
+            cout << endl;
             return pwd;
         }
-    } while (1);
+    } while (true);
 }

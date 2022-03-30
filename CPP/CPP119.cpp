@@ -6,12 +6,12 @@ using namespace std;
 class subject
 {
 private:
-    int hours, marks;
+    int subCode, hours, marks;
     char grade;
     float credits, qPoints;
 
 public:
-    void addDetails(int marks, int hours)
+    void addDetails(int subCode, int marks, int hours)
     {
         if (marks <= 100 && marks >= 90)
         {
@@ -38,9 +38,15 @@ public:
             credits = 0.0;
             grade = 'F';
         }
+        this->subCode = subCode;
         this->marks = marks;
         this->hours = hours;
         qPoints = hours * credits;
+    }
+
+    int getsubCode()
+    {
+        return subCode;
     }
 
     int getMarks()
@@ -50,7 +56,7 @@ public:
 
     char getGrade()
     {
-        return toupper(grade);
+        return grade;
     }
 
     float getCredits()
@@ -75,97 +81,85 @@ void viewGPA(subject *, int &);
 int main()
 {
     int choice, index = 0, size;
-    system("cls");
-    cout << "########## | GPA CALCULATOR | ##########" << endl
-         << endl;
+    cout << endl;
     cout << "Enter total no. of subjects: ";
     cin >> size;
     subject sub[size];
-menu:
-    system("cls");
-    cout << "########## | GPA Calculator | ##########" << endl
-         << endl;
-    cout << "1) Add Subject" << endl;
-    cout << "2) View GPA" << endl;
-    cout << "3) Exit" << endl
-         << endl;
-    cout << "Enter your choice: ";
-    cin >> choice;
-    switch (choice)
+    while (true)
     {
-    case 1:
-        addSubject(sub, index, size);
-        break;
-    case 2:
-        viewGPA(sub, index);
-        break;
-    case 3:
-        exit(0);
-    default:
-        cout << "Invalid Option!";
+        cout << endl;
+        cout << "Choose your Option:" << endl;
+        cout << endl;
+        cout << "1) Add Subject" << endl;
+        cout << "2) View GPA" << endl;
+        cout << "3) Exit" << endl;
+        cout << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            addSubject(sub, index, size);
+            break;
+        case 2:
+            viewGPA(sub, index);
+            break;
+        case 3:
+            exit(0);
+        default:
+            cout << endl;
+            cout << "Invalid Option!" << endl;
+        }
     }
-    goto menu;
 }
 
 void addSubject(subject *sub, int &index, int &size)
 {
-    while (1)
+    if (index == size)
     {
-        system("cls");
-        cout << "########## | ADD SUBJECT | ##########" << endl
-             << endl;
-        if (index == size)
-        {
-            cout << "Storage Full!";
-            cin.sync();
-            cin.get();
-            break;
-        }
-        else
-        {
-            int hours, marks;
-            cout << "| Subject - " << index + 1 << " |" << endl
-                 << endl;
-            cout << "Enter Marks: ";
-            cin >> marks;
-            cout << "Enter Hours: ";
-            cin >> hours;
-            sub[index].addDetails(marks, hours);
-            index++;
-            cout << "Subject Added Successfully!";
-            cin.sync();
-            cin.get();
-            break;
-        }
+        cout << endl;
+        cout << "Storage Full!" << endl;
+        return;
     }
+    int subCode, hours, marks;
+    cout << endl;
+    cout << "Subject - " << index + 1 << endl;
+    cout << endl;
+    cout << "Enter Subject Code (CS-001): CS-";
+    cin >> subCode;
+    cout << endl;
+    cout << "Enter Marks (Out of 100): ";
+    cin >> marks;
+    cout << endl;
+    cout << "Enter Hours: ";
+    cin >> hours;
+    sub[index].addDetails(subCode, marks, hours);
+    index++;
+    cout << endl;
+    cout << "Subject Added Successfully!" << endl;
 }
 
 void viewGPA(subject *sub, int &index)
 {
     float tHours = 0, tQPoints = 0;
-    system("cls");
-    cout << "######################################## | VIEW GPA | ########################################" << endl
-         << endl;
     if (index == 0)
     {
-        cout << "No Subject Found!";
-        cin.sync();
-        cin.get();
+        cout << endl;
+        cout << "No Subject Found!" << endl;
     }
     else
     {
-        cout << "  Sl. No.\tMarks\t\tGrade\t\tCredits\t\tHours\t\tQuality Points" << endl;
-        cout << "-----------------------------------------------------------------------------------------------" << endl
-             << endl;
+        cout << endl;
+        cout << "Sl. No. \t Subject Code \t Marks \t Grade \t Credits \t Hours \t Quality Points" << endl;
+        cout << "---------------------------------------------------------------------------------------" << endl;
+        cout << endl;
         for (int i = 0; i < index; i++)
         {
-            cout << "     " << (i + 1) << "\t\t " << sub[i].getMarks() << "\t\t  " << sub[i].getGrade() << "\t\t   " << sub[i].getCredits() << "\t\t  " << sub[i].getHours() << "\t\t\t" << sub[i].getQPoints() << endl;
+            cout << "   " << (i + 1) << " \t\t    " << "CS-" << sub[i].getsubCode() << " \t  " << sub[i].getMarks() << " \t   " << sub[i].getGrade() << " \t    " << sub[i].getCredits() << " \t\t   " << sub[i].getHours() << " \t       " << sub[i].getQPoints() << endl;
             tHours += sub[i].getHours();
             tQPoints += sub[i].getQPoints();
         }
-        cout << "\nGPA: " << tQPoints / tHours << endl;
-        cout << "\nPress Any Key To Exit...";
-        cin.sync();
-        cin.get();
+        cout << endl;
+        cout << "GPA: " << tQPoints / tHours << endl;
     }
 }
