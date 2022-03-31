@@ -36,5 +36,5 @@ int getIntegerOnly()
         {
             return num;
         }
-    } while (1);
+    } while (true);
 }

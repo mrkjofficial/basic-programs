@@ -7,7 +7,7 @@ void swap(int *, int *);
 
 int main()
 {
-    int x, y, temp;
+    int x, y;
     cout << "Enter two numbers: ";
     cin >> x >> y;
     cout << "Numbers before swapping:" << endl;
