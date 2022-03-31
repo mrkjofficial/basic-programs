@@ -1,60 +1,29 @@
-/* 11. Program to move your name with W,A,S,D keystrokes */
+/* 11. Program to calculate roots of a quadratic equation */
 
 #include <iostream>
-#include <conio.h>
-#include <windows.h>
+#include <cmath>
 using namespace std;
-
-void gotoxy(int, int);
 
 int main()
 {
-    char choice;
-    int x = 10, y = 10;
-    gotoxy(x, y);
-    cout<<"Karan Jaiswal";
-    while (1)
+    int a, b, c, d;
+    float x, y;
+    cout << "Enter the coefficient of x^2, x & constant term: ";
+    cin >> a >> b >> c;
+    d = pow(b, 2) - 4 * a * c;
+    if (d > 0)
     {
-        choice = getch();
-        switch (choice)
-        {
-        case 87:
-            y--;
-            break;
-        case 65:
-            x--;
-            break;
-        case 83:
-            y++;
-            break;
-        case 68:
-            x++;
-            break;
-        case 119:
-            y--;
-            break;
-        case 97:
-            x--;
-            break;
-        case 115:
-            y++;
-            break;
-        case 100:
-            x++;
-            break;
-        case 27:
-            exit(0);
-        }
-        system("cls");
-        gotoxy(x, y);
-        cout << "Karan Jaiswal";
+        x = (-b + sqrt(d)) / (2 * a);
+        y = (-b - sqrt(d)) / (2 * a);
+        cout << "Both roots are real & distinct: " << x << ", " << y << ".";
     }
-}
-
-void gotoxy(int x, int y)
-{
-    COORD c;
-    c.X = x;
-    c.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+    else if (d == 0)
+    {
+        x = -b / (2.0 * a);
+        cout << "Both roots are equal: " << x << ".";
+    }
+    else
+    {
+        cout << "Both roots are imaginary.";
+    }
 }

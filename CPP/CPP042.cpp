@@ -1,29 +1,23 @@
-/* 42. Program to print all prime numbers between two given numbers */
+/* 42. Program to print first n positive numbers with exactly two bits set (exactly two 1's in Binary Representation) (Logic #2) */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int x, y;
-    cout << "Enter a range to print prime numbers: ";
-    cin >> x >> y;
-    cout << "The prime numbers are as follows:\n";
-    int ub = x > y ? x : y;
-    int lb = x < y ? x : y;
-    int j;
-    for (int i = lb; i < ub; i++)
+    int n;
+    cout << "Enter a value of N to print N positive numbers with two bits set: ";
+    cin >> n;
+    for (int i = 2; n; i *= 2)
     {
-        for (j = 2; j <= i - 1; j++)
+        for (int j = 1; j < i; j *= 2)
         {
-            if (i % j == 0)
+            cout << i + j << "\t";
+            n--;
+            if (n == 0)
             {
                 break;
             }
-        }
-        if (i == j)
-        {
-            cout << i << "\t";
         }
     }
 }

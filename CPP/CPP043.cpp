@@ -1,20 +1,28 @@
-/* 43. Program to print all prime factors of a given number */
+/* 43. Program to print 1 + (1+2) + (1+2+3) + … + (1+2+3+…+N) */
 
 #include <iostream>
 using namespace std;
 
+int sum(int);
+
 int main()
 {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    cout << "The prime factors are as follows:\n";
-    for (int i = 2; num > 1; i++)
+    int n, s = 0;
+    cout << "Enter a value of N to print 1 + (1+2) + (1+2+3) + … + (1+2+3+…+N): ";
+    cin >> n;
+    for (int i = 1; i <= n; i++)
     {
-        while (num % i == 0)
-        {
-            cout << i << "\t";
-            num = num / i;
-        }
+        s += sum(i);
     }
+    cout << "Sum of " << n << " numbers is " << s << "!";
+}
+
+int sum(int n)
+{
+    int sum = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        sum += i;
+    }
+    return sum;
 }

@@ -1,47 +1,37 @@
-/* 70. Pattern #20
-
-         * * * * *
-       * * * * *
-     * * * * *
-   * * * * *
- * * * * *
-
-*/
+/* 70. Program to check whether a given string is alphanumeric or not */
 
 #include <iostream>
 using namespace std;
 
+bool countVowels(string);
 int main()
 {
-    int n;
-    while (true)
+    string str;
+    cout << endl;
+    cout << "Enter a String: ";
+    getline(cin, str);
+    cin.sync();
+    cout << endl;
+    if (countVowels(str))
     {
-        cout << endl;
-        cout << "Enter the number of rows: ";
-        cin >> n;
-        cout << endl;
-        if (n > 0 && n < 51)
+        cout << "The string is AlphaNumeric!" << endl;
+    }
+    else
+    {
+        cout << "The string is not AlphaNumeric!" << endl;
+    }
+}
+
+bool countVowels(string str)
+{
+    bool flag = true;
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (!isalnum(str[i]))
         {
-            for (int i = 1; i <= n; i++)
-            {
-                for (int j = 1; j <= 2 * n - 1; j++)
-                {
-                    if (j >= n + 1 - i && j <= 2 * n - i)
-                    {
-                        cout << " *";
-                    }
-                    else
-                    {
-                        cout << "  ";
-                    }
-                }
-                cout << endl;
-            }
-            exit(0);
-        }
-        else
-        {
-            cout << "Please enter a value from 1 to 50!" << endl;
+            flag = false;
+            break;
         }
     }
+    return flag;
 }

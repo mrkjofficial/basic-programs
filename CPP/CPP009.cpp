@@ -1,19 +1,23 @@
-/* 09. Program to find even/odd number without using Modulus/Bitwise operator */
+/* 09. Program to find the greater number among two numbers */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    if (num / 2 * 2 != num)
+    int x, y;
+    cout << "Enter two numbers: ";
+    cin >> x >> y;
+    if (x > y)
     {
-        cout << num << " is an odd number.";
+        cout << x << " is greater than " << y << ".";
+    }
+    else if (x < y)
+    {
+        cout << y << " is greater than " << x << ".";
     }
     else
     {
-        cout << num << " is an even number.";
+        cout << x << " is equal to " << y << ".";
     }
 }

@@ -1,16 +1,26 @@
-/* 29. Program to calculate sum of first N natural numbers */
+/* 29. Program to print all Armstrong numbers under 1000 */
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main()
 {
-    int n, sum = 0;
-    cout<<"Enter a value to print sum of first N natural numbers: ";
-    cin>>n;
-    for (int i = 1; i <= n; i++)
+    int num, newNum, rem, temp;
+    cout << "Armstrong numbers under 1000 are as follows:" << endl;
+    for (num = 1; num <= 1000; num++)
     {
-        sum = sum + i;
+        temp = num;
+        newNum = 0;
+        while (temp != 0)
+        {
+            rem = temp % 10;
+            newNum = newNum + pow(rem, 3);
+            temp = temp / 10;
+        }
+        if (newNum == num)
+        {
+            cout << num << "\t";
+        }
     }
-    cout<<"Sum of first "<<n<<" natural numbers is "<<sum;
 }

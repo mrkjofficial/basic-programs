@@ -1,15 +1,15 @@
-/* 26. Program to print first N even natural numbers in reverse order */
+/* 26. Program to count digits of a given number */
 
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-int main()
-{
-    int num;
-    cout << "Enter a value to print N even natural numbers in reverse: ";
-    cin >> num;
-    for (int i = num; i > 0; i--)
-    {
-        cout << 2 * i << " ";
+int main(){
+    int digit = 0, num;
+    cout<<"Enter a number: ";
+    cin>>num;
+    while(num!=0){
+        num=num/10;
+        digit++;
     }
+    cout<<"It is a "<<digit<<"-digit number.";
 }

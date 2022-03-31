@@ -1,56 +1,96 @@
-/* 61. Pattern #11
-
- *
- * *
- * * *
- * *
- *
-
-*/
+/* 61. Program to rotate an array by n positions */
 
 #include <iostream>
 using namespace std;
 
+void input(int[], int);
+void rotate(int[], int, int, int);
+void print(int[], int);
+
 int main()
 {
-    int k = 0, m, n;
+    int choice, rotation, size;
+    cout << endl;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+    cout << endl;
+    int array[size];
+    input(array, size);
+    cout << "Choose Direction for Rotation:" << endl;
+    cout << "1. Left" << endl;
+    cout << "2. Right" << endl;
+    cout << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+    cout << endl;
     while (true)
     {
-        cout << endl;
-        cout << "Enter the number of rows: ";
-        cin >> n;
-        cout << endl;
-        if (n > 0 && n < 51)
+        switch (choice)
         {
-            m = (n + 1) / 2;
-            for (int i = 1; i <= n; i++)
-            {
-                if (n % 2 == 0)
-                {
-                    if (i <= m)
-                    {
-                        k++;
-                    }
-                    else if (i > m + 1)
-                    {
-                        k--;
-                    }
-                }
-                else
-                {
-                    i <= m ? k++ : k--;
-                }
-                for (int j = 1; j <= k; j++)
-                {
-                    cout << " *";
-                }
-                cout << endl;
-            }
+        case 1:
+            cout << "Enter no. of rotations: ";
+            cin >> rotation;
+            rotate(array, choice, rotation, size);
+            print(array, size);
             exit(0);
-        }
-        else
-        {
-            cout << "Please enter a value from 1 to 50!" << endl;
+        case 2:
+            cout << "Enter no. of rotations: ";
+            cin >> rotation;
+            rotate(array, choice, rotation, size);
+            print(array, size);
+            exit(0);
+        default:
+            cout << "Invalid Choice!";
         }
     }
+}
+
+void input(int array[], int size)
+{
+    cout << "Enter the array elements:" << endl;
+    cout << endl;
+    for (int i = 0; i < size; i++)
+    {
+        cin >> array[i];
+    }
+    cout << endl;
+}
+
+void rotate(int array[], int choice, int rotation, int size)
+{
+    int temp;
+    while (rotation)
+    {
+        if (choice == 1)
+        {
+            temp = array[0];
+            for (int i = 0; i < size - 1; i++)
+            {
+                array[i] = array[i + 1];
+            }
+            array[size - 1] = temp;
+        }
+        else if (choice == 2)
+        {
+            temp = array[size - 1];
+            for (int i = size - 1; i > 0; i--)
+            {
+                array[i] = array[i - 1];
+            }
+            array[0] = temp;
+        }
+        rotation--;
+    }
+}
+
+void print(int array[], int size)
+{
+    cout << endl;
+    cout << "The array elements are:" << endl;
+    cout << endl;
+    for (int i = 0; i < size; i++)
+    {
+        cout << array[i] << " ";
+    }
+    cout << endl;
 }

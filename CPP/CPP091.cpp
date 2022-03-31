@@ -1,70 +1,54 @@
-/* 91. Program to sort an array with a recursive function */
+/* 91. Pattern #16
+
+ \ * * * /
+ * \ * / *
+ * * \ * *
+ * / * \ *
+ / * * * \
+
+*/
 
 #include <iostream>
 using namespace std;
 
-void input(int[], int);
-void print(int[], int);
-void sort(int[], int);
-int getMaxIndex(int[], int);
-
 int main()
 {
-    int size;
-    cout << endl;
-    cout << "Enter the size of the array: ";
-    cin >> size;
-    int array[size];
-    cout << endl;
-    input(array, size);
-    sort(array, size);
-    print(array, size);
-}
-
-void input(int array[], int size)
-{
-    cout << "Enter the array elements:" << endl;
-    cout << endl;
-    for (int i = 0; i < size; i++)
+    int k = 0, n;
+    while (true)
     {
-        cin >> array[i];
-    }
-    cout << endl;
-}
-
-void print(int array[], int size)
-{
-    cout << "The array elements are:" << endl;
-    cout << endl;
-    for (int i = 0; i < size; i++)
-    {
-        cout << array[i] << " ";
-    }
-    cout << endl;
-}
-
-void sort(int array[], int size)
-{
-    if (size > 1)
-    {
-        int mIndex, temp;
-        mIndex = getMaxIndex(array, size);
-        temp = array[size - 1];
-        array[size - 1] = array[mIndex];
-        array[mIndex] = temp;
-        sort(array, size - 1);
-    }
-}
-
-int getMaxIndex(int array[], int size)
-{
-    int mIndex = 0;
-    for (int i = 1; i < size; i++)
-    {
-        if (array[mIndex] < array[i])
+        cout << endl;
+        cout << "Enter the number of rows: ";
+        cin >> n;
+        cout << endl;
+        if (n > 0 && n < 51)
         {
-            mIndex = i;
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    if (j != i && j != (n + 1) - i)
+                    {
+                        cout << " *";
+                    }
+                    else
+                    {
+                        if (j == i)
+                        {
+                            cout << " \\";
+                        }
+                        else
+                        {
+                            cout << " /";
+                        }
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 50!" << endl;
         }
     }
-    return mIndex;
 }

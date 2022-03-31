@@ -1,19 +1,37 @@
-/* 10. Program to find even/odd number using Modulus operator */
+/* 10. Program to find the greater number among three numbers */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    if (num % 2 == 1)
+    int x, y, z;
+    cout << "Enter three numbers: ";
+    cin >> x >> y >> z;
+    if (x > y)
     {
-        cout << num << " is an odd number.";
+        if (x > z)
+        {
+            cout << x << " is greatest.";
+        }
+        else
+        {
+            cout << z << " is greatest.";
+        }
+    }
+    else if (x < y)
+    {
+        if (y > z)
+        {
+            cout << y << " is greatest.";
+        }
+        else
+        {
+            cout << z << " is greatest.";
+        }
     }
     else
     {
-        cout << num << " is an even number.";
+        cout << "All three numbers are equal.";
     }
 }

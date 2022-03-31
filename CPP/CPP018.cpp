@@ -1,12 +1,15 @@
-/* 18. Program to print first 10 natural numbers */
+/* 18. Program to print first N odd natural numbers in reverse order */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    for (int i = 1; i <= 10; i++)
+    int num;
+    cout << "Enter a value to print N odd natural numbers in reverse: ";
+    cin >> num;
+    for (int i = num; i > 0; i--)
     {
-        cout << i << " ";
+        cout << 2 * i - 1 << " ";
     }
 }

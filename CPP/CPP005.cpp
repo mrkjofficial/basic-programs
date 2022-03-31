@@ -1,40 +1,25 @@
-/* 05. Program to take integer inputs only */
+/* 05. Program to swap two numbers without using 3rd variable */
 
 #include <iostream>
-#include <conio.h>
 using namespace std;
 
-int getIntegerOnly();
+void swap(int *, int *);
 
 int main()
 {
-    int num;
-    cout << "Enter a number: ";
-    num = getIntegerOnly();
-    cout << "\nNumber: " << num;
+    int x, y;
+    cout << "Enter two numbers: ";
+    cin >> x >> y;
+    cout << "Numbers before swapping:" << endl;
+    cout << "X = " << x << " | Y = " << y << endl;
+    swap(&x, &y);
+    cout << "Numbers after swapping:" << endl;
+    cout << "X = " << x << " | Y = " << y << endl;
 }
 
-int getIntegerOnly()
+void swap(int *x, int *y)
 {
-    int count = 0, input, num = 0;
-    do
-    {
-        input = getch();
-        if (input >= 48 && input <= 57)
-        {
-            cout << (char)input;
-            num = num * 10 + (input - 48);
-            count++;
-        }
-        else if (input == 8 && count != 0)
-        {
-            num = num / 10;
-            cout << "\b \b";
-            count--;
-        }
-        else if (input == 13)
-        {
-            return num;
-        }
-    } while (true);
+    *x = *x - *y;
+    *y = *x + *y;
+    *x = *y - *x;
 }

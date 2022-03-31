@@ -1,44 +1,49 @@
-/* 83. Pattern #33
+/* 83. Pattern #8
 
- 00
- 05 01
- 09 06 02
- 12 10 07 03
- 14 13 11 08 04
+         1
+       1 2 1
+     1 2 3 2 1
+   1 2 3 4 3 2 1
+ 1 2 3 4 5 4 3 2 1
 
 */
 
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main()
 {
-    int k, n, v;
+    int k, n;
     while (true)
     {
         cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
         cout << endl;
-        if (n > 0 && n < 14)
+        if (n > 0 && n < 10)
         {
             for (int i = 1; i <= n; i++)
             {
-                v = k;
-                for (int j = 1; j <= i; j++)
+                k = 1;
+                for (int j = 1; j <= 2 * n - 1; j++)
                 {
-                    cout << " " << setfill('0') << setw(2) << v;
-                    v = v - (n - i + j);
+                    if (j >= (n + 1) - i && j <= (n - 1) + i && k)
+                    {
+                        cout << " " << k;
+                        j < n ? k++ : k--;
+                    }
+                    else
+                    {
+                        printf("  ");
+                    }
                 }
-                k = k + 1 + n - i;
                 cout << endl;
             }
             exit(0);
         }
         else
         {
-            cout << "Please enter a value from 1 to 13!" << endl;
+            cout << "Please enter a value from 1 to 9!" << endl;
         }
     }
 }

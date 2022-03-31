@@ -1,4 +1,4 @@
-/* 08. Program to find even/odd number using Bitwise operator */
+/* 10. Program to find even/odd number using Modulus operator */
 
 import java.util.Scanner;
 
@@ -8,7 +8,7 @@ public class JAVA008 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number: ");
         num = sc.nextInt();
-        if ((num & 1) == 1) {
+        if (num % 2 == 1) {
             System.out.println(num + " is an odd number.");
         } else {
             System.out.println(num + " is an even number.");

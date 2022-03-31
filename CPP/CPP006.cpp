@@ -1,26 +1,19 @@
-/* 06. Program to swap two numbers */
+/* 06. Program to find even/odd number using Bitwise operator */
 
 #include <iostream>
 using namespace std;
 
-void swap(int *, int *);
-
 int main()
 {
-    int x, y;
-    cout << "Enter two numbers: ";
-    cin >> x >> y;
-    cout << "Numbers before swapping:" << endl;
-    cout << "X = " << x << " | Y = " << y << endl;
-    swap(&x, &y);
-    cout << "Numbers after swapping:" << endl;
-    cout << "X = " << x << " | Y = " << y << endl;
-}
-
-void swap(int *x, int *y)
-{
-    int temp;
-    temp = *x;
-    *x = *y;
-    *y = temp;
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    if (num & 1 == 1)
+    {
+        cout << num << " is an odd number.";
+    }
+    else
+    {
+        cout << num << " is an even number.";
+    }
 }

@@ -1,27 +1,54 @@
-/* 97. Program to calculate sum of cubes of first N natural numbers with a recursive function */
+/* 97. Pattern #22
+
+ 1
+ 1 0
+ 1 0 1
+ 1 0 1 0
+ 1 0 1 0 1
+
+*/
 
 #include <iostream>
-#include <cmath>
 using namespace std;
-
-int sumOfCubes(int);
 
 int main()
 {
-    int n, sum = 0;
-    cout << endl;
-    cout << "Enter the value of N to print the sum of cubes of first N natural numbers: ";
-    cin >> n;
-    sum = sumOfCubes(n);
-    cout << endl;
-    cout << "Sum Of Cubes: " << sum << endl;
-}
-
-int sumOfCubes(int n)
-{
-    if (n == 1)
+    int n;
+    while (true)
     {
-        return 1;
+        cout << endl;
+        cout << "Enter the number of rows: ";
+        cin >> n;
+        cout << endl;
+        if (n > 0 && n < 51)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    if (j <= i)
+                    {
+                        if (j % 2 == 1)
+                        {
+                            cout << " 1";
+                        }
+                        else
+                        {
+                            cout << " 0";
+                        }
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 50!" << endl;
+        }
     }
-    return pow(n, 3) + sumOfCubes(n - 1);
 }

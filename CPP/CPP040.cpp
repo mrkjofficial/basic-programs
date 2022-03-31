@@ -1,20 +1,62 @@
-/* 40. Program to calculate H.C.F of two numbers */
+/* 40. Program to convert from Binary to Decimal (Extended Range) */
 
 #include <iostream>
+#include <cmath>
+#include <conio.h>
+#define SIZE 64
 using namespace std;
+
+void getBinaryInput(char *);
+unsigned long long int toDecimal(char *);
 
 int main()
 {
-    int x, y, i, min;
-    cout << "Enter two numbers: ";
-    cin >> x >> y;
-    min = x < y ? x : y;
-    for (i = min; i >= 1; i--)
+    char bin[SIZE];
+    unsigned long long int dec;
+    cout << "Enter a binary number: ";
+    getBinaryInput(bin);
+    dec = toDecimal(bin);
+    cout << "\nDecimal = " << dec;
+}
+
+void getBinaryInput(char *bin)
+{
+    int ch, i = 0;
+    while (true)
     {
-        if (x % i == 0 && y % i == 0)
+        ch = getch();
+        if (ch >= 48 && ch <= 49 && i != SIZE)
+        {
+            cout << (char)ch;
+            bin[i] = (char)ch;
+            i++;
+        }
+        else if (ch == 8 && i != 0)
+        {
+            bin[i - 1] = '\0';
+            cout << "\b \b";
+            i--;
+        }
+        else if (ch == 13)
         {
             break;
         }
     }
-    cout << "H.C.F = " << i;
+}
+
+unsigned long long int toDecimal(char *bin)
+{
+    unsigned long long int dec = 0;
+    for (int i = 0; bin[i] != '\0'; i++)
+    {
+        if (bin[i] == '0')
+        {
+            dec = dec * 2 + 0;
+        }
+        else
+        {
+            dec = dec * 2 + 1;
+        }
+    }
+    return dec;
 }

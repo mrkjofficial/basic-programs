@@ -1,47 +1,63 @@
-/* 55. Pattern #5
-
-         *
-       * * *
-     * * * * *
-   * * * * * * *
- * * * * * * * * *
-
-*/
+/* 55. Program to calculate sum of all even numbers and sum of all odd numbers in an array */
 
 #include <iostream>
 using namespace std;
 
+void input(int[], int);
+void print(int[], int);
+void calculateSum(int[], int);
+
 int main()
 {
-    int n;
-    while (true)
+    int size;
+    cout << endl;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+    int array[size];
+    cout << endl;
+    input(array, size);
+    print(array, size);
+    calculateSum(array, size);
+}
+
+void input(int array[], int size)
+{
+    cout << "Enter the array elements:" << endl;
+    cout << endl;
+    for (int i = 0; i < size; i++)
     {
-        cout << endl;
-        cout << "Enter the number of rows: ";
-        cin >> n;
-        cout << endl;
-        if (n > 0 && n < 51)
+        cin >> array[i];
+    }
+    cout << endl;
+}
+
+void print(int array[], int size)
+{
+    cout << "The array elements are:" << endl;
+    cout << endl;
+    for (int i = 0; i < size; i++)
+    {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+void calculateSum(int array[], int size)
+{
+    int evenSum = 0, oddSum = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (array[i] % 2)
         {
-            for (int i = 1; i <= n; i++)
-            {
-                for (int j = 1; j <= 2 * n - 1; j++)
-                {
-                    if (j >= n + 1 - i && j <= n - 1 + i)
-                    {
-                        cout << " *";
-                    }
-                    else
-                    {
-                        cout << "  ";
-                    }
-                }
-                cout << endl;
-            }
-            exit(0);
+            oddSum += array[i];
         }
         else
         {
-            cout << "Please enter a value from 1 to 50!" << endl;
+            evenSum += array[i];
         }
     }
+    cout << endl;
+    cout << "Sum Of Even Elements: " << evenSum << endl;
+    cout << endl;
+    cout << "Sum Of Odd Elements: " << oddSum << endl;
 }

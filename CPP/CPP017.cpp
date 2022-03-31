@@ -1,12 +1,15 @@
-/* 17. Program to print your name 5 times */
+/* 17. Program to print first N even natural numbers in reverse order */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    for (int i = 0; i < 5; i++)
+    int num;
+    cout << "Enter a value to print N even natural numbers in reverse: ";
+    cin >> num;
+    for (int i = num; i > 0; i--)
     {
-        cout << "Karan Jaiswal" << endl;
+        cout << 2 * i << " ";
     }
 }

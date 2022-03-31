@@ -1,16 +1,20 @@
-/* 31. Program to calculate factorial of a number */
+/* 31. Program to calculate H.C.F of two numbers */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int n, fac = 1;
-    cout << "Enter a number to find its factorial: ";
-    cin >> n;
-    for (int i = 1; i <= n; i++)
+    int x, y, i, min;
+    cout << "Enter two numbers: ";
+    cin >> x >> y;
+    min = x < y ? x : y;
+    for (i = min; i >= 1; i--)
     {
-        fac = fac * i;
+        if (x % i == 0 && y % i == 0)
+        {
+            break;
+        }
     }
-    cout << "Factorial of " << n << " is " << fac;
+    cout << "H.C.F = " << i;
 }

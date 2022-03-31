@@ -1,49 +1,29 @@
-/* 67. Pattern #17
-
- * * * * *
- * *   * *
- *       *
- * *   * *
- * * * * *
-
-*/
+/* 67. Program to count words in a sentence */
 
 #include <iostream>
 using namespace std;
 
+int wordCount(string, string);
+
 int main()
 {
-    int k = 0, m, n;
-    while (true)
+    string str;
+    cout << endl;
+    cout << "Enter a String: ";
+    getline(cin, str);
+    cin.sync();
+    cout << endl;
+    cout << "Total Words: " << wordCount(str, " ") << endl;
+}
+
+int wordCount(string str, string del)
+{
+    int count = 0, i = 0;
+    while (i != -1)
     {
-        cout << endl;
-        cout << "Enter the number of rows: ";
-        cin >> n;
-        cout << endl;
-        if (n > 0 && n < 51 && n % 2 != 0)
-        {
-            m = (n + 1) / 2;
-            for (int i = 1; i <= n; i++)
-            {
-                i <= m ? k++ : k--;
-                for (int j = 1; j <= n; j++)
-                {
-                    if (j <= m + 1 - k || j >= m - 1 + k)
-                    {
-                        cout << " *";
-                    }
-                    else
-                    {
-                        cout << "  ";
-                    }
-                }
-                cout << endl;
-            }
-            exit(0);
-        }
-        else
-        {
-            cout << "Please enter a value from 1 to 50!" << endl;
-        }
+        i = str.find(del);
+        str = str.substr(i + 1);
+        count++;
     }
+    return count;
 }

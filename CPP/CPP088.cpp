@@ -1,64 +1,49 @@
-/* 88. Program to print a number with a summation of 2 prime numbers */
+/* 88. Pattern #13
+
+         1
+       2 3 2
+     3 4 5 4 3
+   4 5 6 7 6 5 4
+ 5 6 7 8 9 8 7 6 5
+
+*/
 
 #include <iostream>
-#include <iomanip>
 using namespace std;
-
-bool isPrime(int);
-int nextPrime(int);
 
 int main()
 {
-    int n;
-    bool flag = true;
+    int k, n;
     while (true)
     {
         cout << endl;
-        cout << "Enter the number to represent it with a pair of prime numbers: ";
+        cout << "Enter the number of rows: ";
         cin >> n;
         cout << endl;
-        if (n > 0 && n < 100)
+        if (n > 0 && n < 6)
         {
-            for (int i = 2; i <= (n - i); i = nextPrime(i))
+            for (int i = 1; i <= n; i++)
             {
-                if (isPrime(n - i))
+                k = i;
+                for (int j = 1; j <= 2 * n - 1; j++)
                 {
-                    cout << setfill('0') << setw(2) << i << " + " << setfill('0') << setw(2) << (n - i) << " = " << setfill('0') << setw(2) << n << endl;
-                    flag = 1;
+                    if (j >= (n + 1) - i && j <= (n - 1) + i)
+                    {
+                        cout << " " << k;
+                        j < n ? k++ : k--;
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
                 }
-            }
-            if (!flag)
-            {
-                cout << n << " can't be represented with a pair of 2 prime numbers!";
+                cout << endl;
             }
             exit(0);
         }
         else
         {
-            cout << "Please enter a value from 1 to 99!" << endl;
+            cout << "Please enter a value from 1 to 5!" << endl;
         }
     }
-}
-
-bool isPrime(int n)
-{
-    bool flag = true;
-    flag = n == 1 ? false : true;
-    for (int i = 2; i < n / 2; i++)
-    {
-        if (n % i == 0)
-        {
-            flag = false;
-        }
-    }
-    return flag;
-}
-
-int nextPrime(int n)
-{
-    do
-    {
-        n++;
-    } while (!isPrime(n));
-    return n;
 }

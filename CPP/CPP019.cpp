@@ -1,12 +1,16 @@
-/* 19. Program to print first 10 natural numbers in reverse order */
+/* 19. Program to print table of user’s choice */
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main()
 {
-    for (int i = 10; i > 0; i--)
+    int num;
+    printf("Enter a number to print its table: ");
+    scanf("%d", &num);
+    for (int i = 1; i <= 10; i++)
     {
-        cout << i << " ";
+        cout << num << " x " << setw(2) << setfill('0') << i << " = " << num * i << endl;
     }
 }

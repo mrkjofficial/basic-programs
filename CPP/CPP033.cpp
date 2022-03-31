@@ -1,16 +1,50 @@
-/* 33. Program to calculate sum of first N odd natural numbers */
+/* 33. Program to print first N prime numbers */
 
 #include <iostream>
 using namespace std;
 
+void printPrime(int);
+bool isPrime(int);
+
 int main()
 {
-    int n, sum = 0;
-    cout << "Enter a value to print sum of first N odd natural numbers: ";
+    int n;
+    cout << "Enter a value of N to print N prime numbers: ";
     cin >> n;
-    for (int i = 0; i < n; i++)
+    if (n <= 0)
     {
-        sum = sum + 2 * i + 1;
+        cout << "Invalid Input!";
     }
-    cout << "Sum of first " << n << " odd natural numbers is " << sum;
+    else
+    {
+        printPrime(n);
+    }
+}
+
+void printPrime(int n)
+{
+    int num = 2;
+    while (n > 0)
+    {
+        if (isPrime(num))
+        {
+            cout << num << " ";
+            n--;
+        }
+        num++;
+    }
+}
+
+bool isPrime(int num)
+{
+    bool flag = true;
+    flag = num == 1 ? false : true;
+    for (int i = 2; i <= num / 2; i++)
+    {
+        if (num % i == 0)
+        {
+            flag = false;
+        }
+    }
+    return flag;
 }

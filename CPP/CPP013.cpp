@@ -1,23 +1,15 @@
-/* 13. Program to find the greater number among two numbers */
+/* 13. Program to print first N natural numbers */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int x, y;
-    cout << "Enter two numbers: ";
-    cin >> x >> y;
-    if (x > y)
+    int n;
+    cout << "Enter a value to print N natural numbers: ";
+    cin >> n;
+    for (int i = 1; i <= n; i++)
     {
-        cout << x << " is greater than " << y << ".";
-    }
-    else if (x < y)
-    {
-        cout << y << " is greater than " << x << ".";
-    }
-    else
-    {
-        cout << x << " is equal to " << y << ".";
+        cout << i << " ";
     }
 }

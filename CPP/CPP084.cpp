@@ -1,15 +1,14 @@
-/* 84. Pattern #34
+/* 84. Pattern #9
 
- 00
- 00 01
- 00 02 04
- 00 03 06 09
- 00 04 08 12 16
+ A B C D E D C B A
+ A B C D   D C B A
+ A B C       C B A
+ A B           B A
+ A               A
 
 */
 
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main()
@@ -21,30 +20,31 @@ int main()
         cout << "Enter the number of rows: ";
         cin >> n;
         cout << endl;
-        if (n > 0 && n < 11)
+        if (n > 0 && n < 27)
         {
             for (int i = 1; i <= n; i++)
             {
-                k = 0;
-                for (int j = 1; j <= n; j++)
+                k = 65;
+                for (int j = 1; j <= 2 * n - 1; j++)
                 {
-                    if (j <= i)
+                    if (j <= n + 1 - i || j >= n - 1 + i)
                     {
-                        cout << " " << setfill('0') << setw(2) << k;
-                        k = k + i - 1;
+                        cout << " " << (char)k;
+                        j < n ? k++ : k--;
                     }
                     else
                     {
                         cout << "  ";
+                        j < n ? k++ : k--;
                     }
                 }
-                printf("\n");
+                cout << endl;
             }
             exit(0);
         }
         else
         {
-            cout << "Please enter a value from 1 to 10!" << endl;
+            cout << "Please enter a value from 1 to 26!" << endl;
         }
     }
 }

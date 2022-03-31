@@ -1,33 +1,15 @@
-/* 16. Program to check leap year */
+/* 16. Program to print first N odd natural numbers */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int year;
-    cout << "Enter a year: ";
-    cin >> year;
-    if (year % 100 == 0)
+    int num;
+    cout << "Enter a value to print N even natural numbers: ";
+    cin >> num;
+    for (int i = 0; i < num; i++)
     {
-        if (year % 400 == 0)
-        {
-            cout << year << " is a leap year!";
-        }
-        else
-        {
-            cout << year << " is not a leap year!";
-        }
-    }
-    else
-    {
-        if (year % 4 == 0)
-        {
-            cout << year << " is a leap year!";
-        }
-        else
-        {
-            cout << year << " is not a leap year!";
-        }
+        cout << 2 * i + 1 << " ";
     }
 }

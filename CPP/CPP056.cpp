@@ -1,50 +1,58 @@
-/* 56. Pattern #6
-
-         *
-       *   *
-     *   *   *
-   *   *   *   *
- *   *   *   *   *
-
-*/
+/* 56. Program to find greatest among 10 numbers in an array */
 
 #include <iostream>
 using namespace std;
 
+void input(int[], int);
+void print(int[], int);
+int getMax(int[], int);
+
 int main()
 {
-    int k, n;
-    while (true)
+    int max = 0, size;
+    cout << endl;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+    int array[size];
+    cout << endl;
+    input(array, size);
+    print(array, size);
+    max = getMax(array, size);
+    cout << endl;
+    cout << "Max Element: " << max << endl;
+}
+
+void input(int array[], int size)
+{
+    cout << "Enter the array elements:" << endl;
+    cout << endl;
+    for (int i = 0; i < size; i++)
     {
-        cout << endl;
-        cout << "Enter the number of rows: ";
-        cin >> n;
-        cout << endl;
-        if (n > 0 && n < 51)
+        cin >> array[i];
+    }
+    cout << endl;
+}
+
+void print(int array[], int size)
+{
+    cout << "The array elements are:" << endl;
+    cout << endl;
+    for (int i = 0; i < size; i++)
+    {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+int getMax(int array[], int size)
+{
+    int max = array[0];
+    for (int i = 1; i < size; i++)
+    {
+        if (max < array[i])
         {
-            for (int i = 1; i <= n; i++)
-            {
-                k = 1;
-                for (int j = 1; j <= 2 * n - 1; j++)
-                {
-                    if (j >= (n + 1) - i && j <= (n - 1) + i && k)
-                    {
-                        cout << " *";
-                        k = 0;
-                    }
-                    else
-                    {
-                        cout << "  ";
-                        k = 1;
-                    }
-                }
-                cout << endl;
-            }
-            exit(0);
-        }
-        else
-        {
-            cout << "Please enter a value from 1 to 50!" << endl;
+            max = array[i];
         }
     }
+    return max;
 }

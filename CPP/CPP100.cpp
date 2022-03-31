@@ -1,58 +1,49 @@
-/* 100. Program to find greatest among 10 numbers in an array */
+/* 100. Pattern #25
+
+ A
+ B A
+ C B A
+ D C B A
+ E D C B A
+
+*/
 
 #include <iostream>
 using namespace std;
 
-void input(int[], int);
-void print(int[], int);
-int getMax(int[], int);
-
 int main()
 {
-    int max = 0, size;
-    cout << endl;
-    cout << "Enter the size of the array: ";
-    cin >> size;
-    int array[size];
-    cout << endl;
-    input(array, size);
-    print(array, size);
-    max = getMax(array, size);
-    cout << endl;
-    cout << "Max Element: " << max << endl;
-}
-
-void input(int array[], int size)
-{
-    cout << "Enter the array elements:" << endl;
-    cout << endl;
-    for (int i = 0; i < size; i++)
+    int k = 0, n;
+    while (true)
     {
-        cin >> array[i];
-    }
-    cout << endl;
-}
-
-void print(int array[], int size)
-{
-    cout << "The array elements are:" << endl;
-    cout << endl;
-    for (int i = 0; i < size; i++)
-    {
-        cout << array[i] << " ";
-    }
-    cout << endl;
-}
-
-int getMax(int array[], int size)
-{
-    int max = array[0];
-    for (int i = 1; i < size; i++)
-    {
-        if (max < array[i])
+        cout << endl;
+        cout << "Enter the number of rows: ";
+        cin >> n;
+        cout << endl;
+        if (n > 0 && n < 27)
         {
-            max = array[i];
+            for (int i = 1; i <= n; i++)
+            {
+                k = 64 + i;
+                for (int j = 1; j <= n; j++)
+                {
+                    if (j <= i)
+                    {
+                        cout << " " << (char)k;
+                        k--;
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 26!" << endl;
         }
     }
-    return max;
 }

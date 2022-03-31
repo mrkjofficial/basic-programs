@@ -1,19 +1,33 @@
-/* 12. Program to find whether a number is divisible by 5 or not */
+/* 12. Program to check leap year */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int num;
-    cout << "Enter a number: ";
-    cin >> num;
-    if (num % 5 == 0)
+    int year;
+    cout << "Enter a year: ";
+    cin >> year;
+    if (year % 100 == 0)
     {
-        cout << num << " is divisible by 5.";
+        if (year % 400 == 0)
+        {
+            cout << year << " is a leap year!";
+        }
+        else
+        {
+            cout << year << " is not a leap year!";
+        }
     }
     else
     {
-        cout << num << " is not divisible by 5.";
+        if (year % 4 == 0)
+        {
+            cout << year << " is a leap year!";
+        }
+        else
+        {
+            cout << year << " is not a leap year!";
+        }
     }
 }

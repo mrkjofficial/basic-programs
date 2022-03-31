@@ -1,58 +1,49 @@
-/* 101. Program to find smallest among 10 numbers in an array */
+/* 101. Pattern #26
+
+         1
+       2 1 2
+     3 2 1 2 3
+   4 3 2 1 2 3 4
+ 5 4 3 2 1 2 3 4 5
+
+*/
 
 #include <iostream>
 using namespace std;
 
-void input(int[], int);
-void print(int[], int);
-int getMin(int[], int);
-
 int main()
 {
-    int min = 0, size;
-    cout << endl;
-    cout << "Enter the size of the array: ";
-    cin >> size;
-    int array[size];
-    cout << endl;
-    input(array, size);
-    print(array, size);
-    min = getMin(array, size);
-    cout << endl;
-    cout << "Min Element: " << min << endl;
-}
-
-void input(int array[], int size)
-{
-    cout << "Enter the array elements:" << endl;
-    cout << endl;
-    for (int i = 0; i < size; i++)
+    int k, n;
+    while (true)
     {
-        cin >> array[i];
-    }
-    cout << endl;
-}
-
-void print(int array[], int size)
-{
-    cout << "The array elements are:" << endl;
-    cout << endl;
-    for (int i = 0; i < size; i++)
-    {
-        cout << array[i] << " ";
-    }
-    cout << endl;
-}
-
-int getMin(int array[], int size)
-{
-    int min = array[0];
-    for (int i = 1; i < size; i++)
-    {
-        if (min > array[i])
+        cout << endl;
+        cout << "Enter the number of rows: ";
+        cin >> n;
+        cout << endl;
+        if (n > 0 && n < 10)
         {
-            min = array[i];
+            for (int i = 1; i <= n; i++)
+            {
+                k = i;
+                for (int j = 1; j <= 2 * n - 1; j++)
+                {
+                    if (j >= (n + 1) - i && j <= (n - 1) + i)
+                    {
+                        cout << " " << k;
+                        j < n ? k-- : k++;
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 9!" << endl;
         }
     }
-    return min;
 }

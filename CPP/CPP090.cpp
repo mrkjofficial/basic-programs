@@ -1,32 +1,51 @@
-/* 90. Program to print fibonacci series of n numbers with a recursive function */
+/* 90. Pattern #15
+
+     1
+   1 2
+ 1 2 3
+   1 2
+     1
+
+*/
 
 #include <iostream>
 using namespace std;
 
-int fibonacci(int);
-
 int main()
 {
-    int n;
-    cout << "Enter a value of n to print fibonacci series of n numbers: ";
-    cin >> n;
-    cout << "Fibonacci Series:" << endl;
-    cout << endl;
-    for (int i = 1; i <= n; i++)
+    int k = 0, m, n, x;
+    while (true)
     {
-        cout << "\t" << fibonacci(i);
-    }
-    cout << endl;
-}
-
-int fibonacci(int n)
-{
-    if (n == 1 || n == 2)
-    {
-        return 1;
-    }
-    else
-    {
-        return (fibonacci(n - 1) + fibonacci(n - 2));
+        cout << endl;
+        cout << "Enter the number of rows: ";
+        cin >> n;
+        cout << endl;
+        m = (n + 1) / 2;
+        if (n > 0 && n < 18)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                i < (m + 1) ? k++ : k--;
+                x = 1;
+                for (int j = 1; j <= m; j++)
+                {
+                    if (j >= m - k + 1)
+                    {
+                        cout << " " << x;
+                        x++;
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 17!" << endl;
+        }
     }
 }

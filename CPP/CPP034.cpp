@@ -1,15 +1,29 @@
-/* 34. Program to calculate x power y i.e., x^y */
+/* 34. Program to print all prime numbers between two given numbers */
 
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main()
 {
     int x, y;
-    cout << "Enter a number: ";
-    cin >> x;
-    cout << "Enter its power: ";
-    cin >> y;
-    cout << "Result = " << pow(x, y);
+    cout << "Enter a range to print prime numbers: ";
+    cin >> x >> y;
+    cout << "The prime numbers are as follows:\n";
+    int ub = x > y ? x : y;
+    int lb = x < y ? x : y;
+    int j;
+    for (int i = lb; i < ub; i++)
+    {
+        for (j = 2; j <= i - 1; j++)
+        {
+            if (i % j == 0)
+            {
+                break;
+            }
+        }
+        if (i == j)
+        {
+            cout << i << "\t";
+        }
+    }
 }

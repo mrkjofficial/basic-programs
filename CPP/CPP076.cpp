@@ -1,10 +1,10 @@
-/* 76. Pattern #26
+/* 76. Pattern #1
 
-         1
-       2 1 2
-     3 2 1 2 3
-   4 3 2 1 2 3 4
- 5 4 3 2 1 2 3 4 5
+ *
+ * *
+ * * *
+ * * * *
+ * * * * *
 
 */
 
@@ -13,24 +13,22 @@ using namespace std;
 
 int main()
 {
-    int k, n;
+    int n;
     while (true)
     {
         cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
         cout << endl;
-        if (n > 0 && n < 10)
+        if (n > 0 && n < 51)
         {
             for (int i = 1; i <= n; i++)
             {
-                k = i;
-                for (int j = 1; j <= 2 * n - 1; j++)
+                for (int j = 1; j <= n; j++)
                 {
-                    if (j >= (n + 1) - i && j <= (n - 1) + i)
+                    if (j <= i)
                     {
-                        cout << " " << k;
-                        j < n ? k-- : k++;
+                        cout << " *";
                     }
                     else
                     {
@@ -43,7 +41,7 @@ int main()
         }
         else
         {
-            cout << "Please enter a value from 1 to 9!" << endl;
+            cout << "Please enter a value from 1 to 50!" << endl;
         }
     }
 }

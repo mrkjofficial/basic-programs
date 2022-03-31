@@ -1,10 +1,10 @@
-/* 80. Pattern #30
+/* 80. Pattern #5
 
-         1
-       A   B
-     1   2   3
-   A   B   C   D
- 1   2   3   4   5
+         *
+       * * *
+     * * * * *
+   * * * * * * *
+ * * * * * * * * *
 
 */
 
@@ -13,38 +13,26 @@ using namespace std;
 
 int main()
 {
-    int k, n, p;
+    int n;
     while (true)
     {
         cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
         cout << endl;
-        if (n > 0 && n < 10)
+        if (n > 0 && n < 51)
         {
             for (int i = 1; i <= n; i++)
             {
-                k = 1;
-                p = 1;
                 for (int j = 1; j <= 2 * n - 1; j++)
                 {
-                    if (j >= (n + 1) - i && j <= (n - 1) + i && k)
+                    if (j >= n + 1 - i && j <= n - 1 + i)
                     {
-                        if (i % 2 == 0)
-                        {
-                            cout << " " << (char)(p + 64);
-                        }
-                        else
-                        {
-                            cout << " " << p;
-                        }
-                        p++;
-                        k = 0;
+                        cout << " *";
                     }
                     else
                     {
                         cout << "  ";
-                        k = 1;
                     }
                 }
                 cout << endl;
@@ -53,7 +41,7 @@ int main()
         }
         else
         {
-            cout << "Please enter a value from 1 to 9!" << endl;
+            cout << "Please enter a value from 1 to 50!" << endl;
         }
     }
 }

@@ -1,49 +1,33 @@
-/* 68. Pattern #18
-
-         A
-       A B A
-     A B C B A
-   A B C D C B A
- A B C D E D C B A
-
-*/
+/* 68. Program to reverse a string word wise */
 
 #include <iostream>
 using namespace std;
 
+string wordCount(string, string);
+
 int main()
 {
-    int k = 0, n;
-    while (true)
+    string str;
+    cout << endl;
+    cout << "Enter a String: ";
+    getline(cin, str);
+    cin.sync();
+    cout << endl;
+    cout << "Reversed String (Word Wise): " << wordCount(str, " ") << endl;
+}
+
+string wordCount(string str, string del)
+{
+    string revstr;
+    int i = 0;
+    while (i != -1)
     {
-        cout << endl;
-        cout << "Enter the number of rows: ";
-        cin >> n;
-        cout << endl;
-        if (n > 0 && n < 27)
-        {
-            for (int i = 1; i <= n; i++)
-            {
-                k = 65;
-                for (int j = 1; j <= 2 * n - 1; j++)
-                {
-                    if (j >= n + 1 - i && j <= n - 1 + i)
-                    {
-                        cout << " " << (char)k;
-                        j < n ? k++ : k--;
-                    }
-                    else
-                    {
-                        cout << "  ";
-                    }
-                }
-                cout << endl;
-            }
-            exit(0);
-        }
-        else
-        {
-            cout << "Please enter a value from 1 to 26!" << endl;
+        i = str.rfind(del);
+        revstr += str.substr(i + 1) + " ";
+        if(i != -1){
+            str.erase(i);
         }
     }
+    revstr.pop_back();
+    return revstr;
 }

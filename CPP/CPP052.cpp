@@ -1,47 +1,27 @@
-/* 52. Pattern #2
-
-         *
-       * *
-     * * *
-   * * * *
- * * * * *
-
-*/
+/* 52. Program to calculate sum of squares of first N natural numbers with a recursive function */
 
 #include <iostream>
+#include <cmath>
 using namespace std;
+
+int sumOfSquares(int);
 
 int main()
 {
-    int n;
-    while (true)
+    int n, sum = 0;
+    cout << endl;
+    cout << "Enter the value of N to print the sum of squares of first N natural numbers: ";
+    cin >> n;
+    sum = sumOfSquares(n);
+    cout << endl;
+    cout << "Sum Of Squares: " << sum << endl;
+}
+
+int sumOfSquares(int n)
+{
+    if (n == 1)
     {
-        cout << endl;
-        cout << "Enter the number of rows: ";
-        cin >> n;
-        cout << endl;
-        if (n > 0 && n < 51)
-        {
-            for (int i = 1; i <= n; i++)
-            {
-                for (int j = 1; j <= n; j++)
-                {
-                    if (j >= (n + 1) - i)
-                    {
-                        cout << " *";
-                    }
-                    else
-                    {
-                        cout << "  ";
-                    }
-                }
-                cout << endl;
-            }
-            exit(0);
-        }
-        else
-        {
-            cout << "Please enter a value from 1 to 50!" << endl;
-        }
+        return 1;
     }
+    return pow(n, 2) + sumOfSquares(n - 1);
 }

@@ -1,39 +1,26 @@
-/* 45. Program to print N co-prime numbers */
+/* 45. Program to calculate factorial of a number with a recursive function */
 
 #include <iostream>
 using namespace std;
 
+long factorial(int);
+
 int main()
 {
-    int y = 2, min, n;
-    bool flag;
-    cout << "Enter a number to print co-prime numbers: ";
+    int n;
+    cout << "Enter the number to calculate its factorial: ";
     cin >> n;
-    cout << "The co-prime numbers are as follows:\n";
-    while (true)
+    cout << "Factorial of " << n << " = " << factorial(n);
+}
+
+long factorial(int n)
+{
+    if (n > 0)
     {
-        for (int x = 2; x <= y; x++)
-        {
-            flag = true;
-            min = x < y ? x : y;
-            for (int i = 2; i <= min; i++)
-            {
-                if (x % i == 0 && y % i == 0)
-                {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag)
-            {
-                cout << "(" << x << "," << y << ")" << endl;
-                n--;
-                if (n == 0)
-                {
-                    exit(0);
-                }
-            }
-        }
-        y++;
+        return n * factorial(n - 1);
+    }
+    else
+    {
+        return 1;
     }
 }

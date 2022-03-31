@@ -1,42 +1,17 @@
-/* 64. Pattern #14
-
- 4 3 2 1 0
- 3 2 1 0
- 2 1 0
- 1 0
- 0
-
-*/
+/* 64. Program to transform a string to its uppercase/lowercase */
 
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int k, n;
-    while (true)
-    {
-        cout << endl;
-        cout << "Enter the number of rows: ";
-        cin >> n;
-        cout << endl;
-        if (n > 0 && n < 10)
-        {
-            k = n;
-            for (int i = 1; i <= n; i++)
-            {
-                for (int j = 1; j <= k; j++)
-                {
-                    cout << " " << k - j;
-                }
-                cout << endl;
-                k--;
-            }
-            exit(0);
-        }
-        else
-        {
-            cout << "Please enter a value from 1 to 9!" << endl;
-        }
-    }
+    string str;
+    cout << "Enter a String: ";
+    getline(cin, str);
+    cin.sync();
+    transform(str.begin(), str.end(), str.begin(), ::toupper);
+    cout << "Upper Case String: " << str << endl;
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    cout << "Lower Case String: " << str << endl;
 }

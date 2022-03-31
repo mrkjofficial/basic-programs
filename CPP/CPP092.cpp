@@ -1,28 +1,49 @@
-/* 92. Program to print first N natural numbers with a recursive function */
+/* 92. Pattern #17
+
+ * * * * *
+ * *   * *
+ *       *
+ * *   * *
+ * * * * *
+
+*/
 
 #include <iostream>
 using namespace std;
 
-void generateNum(int);
-
 int main()
 {
-    int n;
-    cout << endl;
-    cout << "Enter the value of N to print N numbers: ";
-    cin >> n;
-    cout << endl;
-    cout << "The N numbers are:" << endl;
-    cout << endl;
-    generateNum(n);
-    cout << endl;
-}
-
-void generateNum(int n)
-{
-    if (n > 0)
+    int k = 0, m, n;
+    while (true)
     {
-        generateNum(n - 1);
-        cout << n << " ";
+        cout << endl;
+        cout << "Enter the number of rows: ";
+        cin >> n;
+        cout << endl;
+        if (n > 0 && n < 51 && n % 2 != 0)
+        {
+            m = (n + 1) / 2;
+            for (int i = 1; i <= n; i++)
+            {
+                i <= m ? k++ : k--;
+                for (int j = 1; j <= n; j++)
+                {
+                    if (j <= m + 1 - k || j >= m - 1 + k)
+                    {
+                        cout << " *";
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 50!" << endl;
+        }
     }
 }

@@ -1,15 +1,17 @@
-/* 27. Program to print first N odd natural numbers in reverse order */
+/* 27. Program to calculate sum of the digits of a given number */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int num;
-    cout << "Enter a value to print N odd natural numbers in reverse: ";
+    int num, s = 0;
+    cout << "Enter a number: ";
     cin >> num;
-    for (int i = num; i > 0; i--)
+    for (int i = 0; num != 0; i++)
     {
-        cout << 2 * i - 1 << " ";
+        s = s + (num % 10);
+        num = num / 10;
     }
+    cout << "Sum = " << s;
 }

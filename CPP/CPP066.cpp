@@ -1,54 +1,23 @@
-/* 66. Pattern #16
-
- \ * * * /
- * \ * / *
- * * \ * *
- * / * \ *
- / * * * \
-
-*/
+/* 66. Program to check whether a string is palindrome or not */
 
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
-    int k = 0, n;
-    while (true)
+    string str, revstr;
+    cout << "Enter a String: ";
+    getline(cin, str);
+    cin.sync();
+    revstr = str;
+    reverse(revstr.begin(), revstr.end());
+    if (revstr == str)
     {
-        cout << endl;
-        cout << "Enter the number of rows: ";
-        cin >> n;
-        cout << endl;
-        if (n > 0 && n < 51)
-        {
-            for (int i = 1; i <= n; i++)
-            {
-                for (int j = 1; j <= n; j++)
-                {
-                    if (j != i && j != (n + 1) - i)
-                    {
-                        cout << " *";
-                    }
-                    else
-                    {
-                        if (j == i)
-                        {
-                            cout << " \\";
-                        }
-                        else
-                        {
-                            cout << " /";
-                        }
-                    }
-                }
-                cout << endl;
-            }
-            exit(0);
-        }
-        else
-        {
-            cout << "Please enter a value from 1 to 50!" << endl;
-        }
+        cout << "It's a palindrome string!" << endl;
+    }
+    else
+    {
+        cout << "It's not a palindrome string!" << endl;
     }
 }

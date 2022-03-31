@@ -1,20 +1,56 @@
-/* 39. Program to calculate L.C.M of two numbers */
+/* 39. Program to convert from Binary to Decimal (upto 10 digits input) */
 
 #include <iostream>
+#include <cmath>
+#include <conio.h>
+#define SIZE 10
 using namespace std;
+
+int getBinaryInput();
+int toDecimal(int);
 
 int main()
 {
-    int x, y, i, max;
-    cout << "Enter two numbers: ";
-    cin >> x >> y;
-    max = x > y ? x : y;
-    for (i = max; i <= x * y; i = i + max)
+    int bin, dec;
+    cout << "Enter a binary number: ";
+    bin = getBinaryInput();
+    dec = toDecimal(bin);
+    cout << "\nDecimal = " << dec;
+}
+
+int getBinaryInput()
+{
+    int ch, count = 0, bin = 0;
+    while (true)
     {
-        if (i % x == 0 && i % y == 0)
+        ch = getch();
+        if (ch >= 48 && ch <= 49 && count != SIZE)
         {
-            break;
+            cout << (char)ch;
+            bin = bin * 10 + (ch - 48);
+            count++;
+        }
+        else if (ch == 8 && count != 0)
+        {
+            bin = bin / 10;
+            cout << "\b \b";
+            count--;
+        }
+        else if (ch == 13)
+        {
+            return bin;
         }
     }
-    cout << "L.C.M = " << i;
+}
+
+int toDecimal(int bin)
+{
+    int dec = 0, rem;
+    for (int i = 0; bin > 0; i++)
+    {
+        rem = bin % 10;
+        dec = dec + rem * pow(2, i);
+        bin = bin / 10;
+    }
+    return dec;
 }

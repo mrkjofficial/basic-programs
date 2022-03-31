@@ -1,17 +1,29 @@
-/* 36. Program to calculate sum of the digits of a given number */
+/* 36. Program to check co-prime numbers */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int num, s = 0;
-    cout << "Enter a number: ";
-    cin >> num;
-    for (int i = 0; num != 0; i++)
+    int x, y, min;
+    bool flag = true;
+    cout << "Enter two numbers: ";
+    cin >> x >> y;
+    min = x < y ? x : y;
+    for (int i = 2; i <= min; i++)
     {
-        s = s + (num % 10);
-        num = num / 10;
+        if (x % i == 0 && y % i == 0)
+        {
+            flag = false;
+            break;
+        }
     }
-    cout << "Sum = " << s;
+    if (flag)
+    {
+        cout << x << " & " << y << " are co-prime numbers.";
+    }
+    else
+    {
+        cout << x << " & " << y << " are not co-prime numbers.";
+    }
 }

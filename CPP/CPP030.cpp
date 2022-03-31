@@ -1,16 +1,20 @@
-/* 30. Program to calculate product of first N natural numbers */
+/* 30. Program to calculate L.C.M of two numbers */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int n, pro = 1;
-    cout << "Enter a value to print product of first N natural numbers: ";
-    cin >> n;
-    for (int i = 1; i <= n; i++)
+    int x, y, i, max;
+    cout << "Enter two numbers: ";
+    cin >> x >> y;
+    max = x > y ? x : y;
+    for (i = max; i <= x * y; i = i + max)
     {
-        pro = pro * i;
+        if (i % x == 0 && i % y == 0)
+        {
+            break;
+        }
     }
-    cout << "Product of first " << n << " natural numbers is " << pro;
+    cout << "L.C.M = " << i;
 }

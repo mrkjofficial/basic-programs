@@ -1,37 +1,15 @@
-/* 14. Program to find the greater number among three numbers */
+/* 14. Program to print first N natural numbers in reverse order */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int x, y, z;
-    cout << "Enter three numbers: ";
-    cin >> x >> y >> z;
-    if (x > y)
+    int n;
+    cout << "Enter a value to print N natural numbers in reverse: ";
+    cin >> n;
+    for (int i = n; i > 0; i--)
     {
-        if (x > z)
-        {
-            cout << x << " is greatest.";
-        }
-        else
-        {
-            cout << z << " is greatest.";
-        }
-    }
-    else if (x < y)
-    {
-        if (y > z)
-        {
-            cout << y << " is greatest.";
-        }
-        else
-        {
-            cout << z << " is greatest.";
-        }
-    }
-    else
-    {
-        cout << "All three numbers are equal.";
+        cout << i << " ";
     }
 }

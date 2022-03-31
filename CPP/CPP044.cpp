@@ -1,29 +1,14 @@
-/* 44. Program to check co-prime numbers */
+/* 44. Program to print system time & date */
 
 #include <iostream>
+#include <iomanip>
+#include <ctime>
 using namespace std;
 
 int main()
 {
-    int x, y, min;
-    bool flag = true;
-    cout << "Enter two numbers: ";
-    cin >> x >> y;
-    min = x < y ? x : y;
-    for (int i = 2; i <= min; i++)
-    {
-        if (x % i == 0 && y % i == 0)
-        {
-            flag = false;
-            break;
-        }
-    }
-    if (flag)
-    {
-        cout << x << " & " << y << " are co-prime numbers.";
-    }
-    else
-    {
-        cout << x << " & " << y << " are not co-prime numbers.";
-    }
+    string days[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+    time_t now = time(0);
+    tm *ltime = localtime(&now);
+    cout << "Current Time & Date: " << setfill('0') << setw(2) << ltime->tm_hour << ":" << setfill('0') << setw(2) << ltime->tm_min << ":" << setfill('0') << setw(2) << ltime->tm_sec << " - " << days[ltime->tm_wday] << ", " << setfill('0') << setw(2) << ltime->tm_mday << "/" << setfill('0') << setw(2) << 1 + ltime->tm_mon << "/" << setfill('0') << setw(4) << 1900 + ltime->tm_year << endl;
 }

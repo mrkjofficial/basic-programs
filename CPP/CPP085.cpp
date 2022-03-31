@@ -1,80 +1,63 @@
-/* 85. Program to print a Pascal Triangle
+/* 85. Pattern #10
 
-             01
-          01    01
-       01    02    01      
-    01    03    03    01   
- 01    04    06    04    01
+     *
+   * * *
+ * * * * *
+   * * *
+     *
 
 */
 
 #include <iostream>
-#include <iomanip>
 using namespace std;
-
-void pascal(int);
-int combination(int, int);
-int factorial(int);
 
 int main()
 {
-    int n;
+    int k = 0, m, n;
     while (true)
     {
         cout << endl;
-        cout << "Enter the number of rows to print a Pascal Triangle: ";
+        cout << "Enter the number of rows: ";
         cin >> n;
         cout << endl;
-        if (n > 0 && n < 10)
+        if (n > 0 && n < 51)
         {
-            pascal(n);
+            m = (n + 1) / 2;
+            for (int i = 1; i <= n; i++)
+            {
+                if (n % 2 == 0)
+                {
+                    if (i <= m)
+                    {
+                        k++;
+                    }
+                    else if (i > m + 1)
+                    {
+                        k--;
+                    }
+                }
+                else
+                {
+                    i <= m ? k++ : k--;
+                }
+                for (int j = 1; j <= n; j++)
+                {
+                    if (j >= m + 1 - k && j <= m - 1 + k)
+                    {
+                        cout << " *";
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << endl;
+            }
             exit(0);
         }
         else
         {
-            cout << "Please enter a value from 1 to 9!" << endl;
+            cout << "Please enter a value from 1 to 50!" << endl;
         }
-    }
-}
-
-void pascal(int n)
-{
-    int k, r;
-    for (int i = 1; i <= n; i++)
-    {
-        k = 1;
-        r = 0;
-        for (int j = 1; j <= 2 * n - 1; j++)
-        {
-            if (j >= n + 1 - i && j <= n - 1 + i && k)
-            {
-                cout << " " << setfill('0') << setw(2) << combination(i - 1, r);
-                k = 0;
-                r++;
-            }
-            else
-            {
-                cout << "   ";
-                k = 1;
-            }
-        }
-        cout << endl;
-    }
-}
-
-int combination(int n, int r)
-{
-    return factorial(n) / (factorial(n - r) * factorial(r));
-}
-
-int factorial(int n)
-{
-    if (n > 0)
-    {
-        return n * factorial(n - 1);
-    }
-    else
-    {
-        return 1;
     }
 }

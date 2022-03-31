@@ -1,15 +1,5 @@
-/* 79. Pattern #29
+/* 79. Pattern #4
 
-                 *
-               * *
-             * * *
-           * * * *
-         * * * * *
-         | * * * *
- *       |   * * *
- * *     |     * *
- * * *   |       *
- * * * * |
  * * * * *
  * * * *
  * * *
@@ -23,55 +13,26 @@ using namespace std;
 
 int main()
 {
-    int k, n, t = 64;
+    int n;
     while (true)
     {
         cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
         cout << endl;
-        if (n > 0 && n < 21)
+        if (n > 0 && n < 51)
         {
-            for (int i = 1; i <= 3 * n; i++)
+            for (int i = 1; i <= n; i++)
             {
-                for (int j = 1; j <= 2 * n - 1; j++)
+                for (int j = 1; j <= n; j++)
                 {
-                    if (i <= n)
+                    if (j <= (n + 1) - i)
                     {
-                        if (j >= 2 * n - i)
-                        {
-                            cout << " *";
-                        }
-                        else
-                        {
-                            cout << "  ";
-                        }
+                        cout << " *";
                     }
-                    else if (i <= 2 * n)
+                    else
                     {
-                        if (j == n)
-                        {
-                            cout << " |";
-                        }
-                        else if (j <= (i - n - 1) || j >= i)
-                        {
-                            cout << " *";
-                        }
-                        else
-                        {
-                            cout << "  ";
-                        }
-                    }
-                    else if (i <= 3 * n)
-                    {
-                        if (j <= 3 * n + 1 - i)
-                        {
-                            cout << " *";
-                        }
-                        else
-                        {
-                            cout << "  ";
-                        }
+                        cout << "  ";
                     }
                 }
                 cout << endl;
@@ -80,7 +41,7 @@ int main()
         }
         else
         {
-            cout << "Please enter a value from 1 to 20!" << endl;
+            cout << "Please enter a value from 1 to 50!" << endl;
         }
     }
 }

@@ -1,15 +1,16 @@
-/* 21. Program to print first N natural numbers in reverse order */
+/* 21. Program to calculate product of first N natural numbers */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int n;
-    cout << "Enter a value to print N natural numbers in reverse: ";
+    int n, pro = 1;
+    cout << "Enter a value to print product of first N natural numbers: ";
     cin >> n;
-    for (int i = n; i > 0; i--)
+    for (int i = 1; i <= n; i++)
     {
-        cout << i << " ";
+        pro = pro * i;
     }
+    cout << "Product of first " << n << " natural numbers is " << pro;
 }

@@ -1,23 +1,29 @@
-/* 49. Program to print first n positive numbers with exactly two bits set (exactly two 1's in Binary Representation) (Logic #2) */
+/* 50. Program to calculate sum of digits of a number with a recursive function */
 
 #include <iostream>
 using namespace std;
 
+int sumOfDigits(int);
+
 int main()
 {
-    int n;
-    cout << "Enter a value of N to print N positive numbers with two bits set: ";
-    cin >> n;
-    for (int i = 2; n; i *= 2)
+    int num, sum = 0;
+    cout << endl;
+    cout << "Enter a number: ";
+    cin >> num;
+    sum = sumOfDigits(num);
+    cout << endl;
+    cout << "Sum Of Digits: " << sum << endl;
+}
+
+int sumOfDigits(int num)
+{
+    if (num == 0)
     {
-        for (int j = 1; j < i; j *= 2)
-        {
-            cout << i + j << "\t";
-            n--;
-            if (n == 0)
-            {
-                break;
-            }
-        }
+        return 0;
     }
+    int sum = 0;
+    sum += num % 10;
+    num = num / 10;
+    return sum + sumOfDigits(num);
 }

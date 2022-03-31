@@ -1,30 +1,47 @@
-/* 95. Program to calculate sum of squares of digits of a number with a recursive function */
+/* 95. Pattern #20
+
+         * * * * *
+       * * * * *
+     * * * * *
+   * * * * *
+ * * * * *
+
+*/
 
 #include <iostream>
-#include <cmath>
 using namespace std;
-
-int sumOfDigitSquare(int);
 
 int main()
 {
-    int num, sum = 0;
-    cout << endl;
-    cout << "Enter a number: ";
-    cin >> num;
-    sum = sumOfDigitSquare(num);
-    cout << endl;
-    cout << "Sum Of Digit Squares: " << sum << endl;
-}
-
-int sumOfDigitSquare(int num)
-{
-    if (num == 0)
+    int n;
+    while (true)
     {
-        return 0;
+        cout << endl;
+        cout << "Enter the number of rows: ";
+        cin >> n;
+        cout << endl;
+        if (n > 0 && n < 51)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= 2 * n - 1; j++)
+                {
+                    if (j >= n + 1 - i && j <= 2 * n - i)
+                    {
+                        cout << " *";
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 50!" << endl;
+        }
     }
-    int sum = 0;
-    sum += pow((num % 10), 2);
-    num = num / 10;
-    return sum + sumOfDigitSquare(num);
 }

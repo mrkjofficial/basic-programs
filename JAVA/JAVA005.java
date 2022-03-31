@@ -1,32 +1,27 @@
-/* 05. Program to take integer inputs only */
+/* 05. Program to swap two numbers without using 3rd variable */
 
 import java.util.Scanner;
 
 public class JAVA005 {
+    int x, y;
+
     public static void main(String[] args) {
-        String num;
+        JAVA005 obj = new JAVA005();
         Scanner sc = new Scanner(System.in);
-        while (true) {
-            System.out.print("Enter a number: ");
-            num = sc.nextLine();
-            if (getIntegerOnly(num)) {
-                System.out.println("Number: " + num);
-                break;
-            } else {
-                System.out.println("Enter Integer Only!");
-            }
-        }
+        System.out.print("Enter two numbers: ");
+        obj.x = sc.nextInt();
+        obj.y = sc.nextInt();
+        System.out.println("Numbers before swapping:");
+        System.out.println("X = " + obj.x + " | Y = " + obj.y);
+        swap(obj);
+        System.out.println("Numbers after swapping:");
+        System.out.println("X = " + obj.x + " | Y = " + obj.y);
         sc.close();
     }
 
-    public static boolean getIntegerOnly(String num) {
-        boolean flag = true;
-        char numArray[] = num.toCharArray();
-        for (int i = 0; i < numArray.length; i++) {
-            if (numArray[i] < 48 || numArray[i] > 57) {
-                flag = false;
-            }
-        }
-        return flag;
+    public static void swap(JAVA005 obj) {
+        obj.x = obj.x - obj.y;
+        obj.y = obj.x + obj.y;
+        obj.x = obj.y - obj.x;
     }
 }

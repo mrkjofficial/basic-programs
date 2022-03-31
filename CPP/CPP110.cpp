@@ -1,23 +1,80 @@
-/* 110. Program to check whether a string is palindrome or not */
+/* 110. Program to print a Pascal Triangle
+
+             01
+          01    01
+       01    02    01      
+    01    03    03    01   
+ 01    04    06    04    01
+
+*/
 
 #include <iostream>
-#include <algorithm>
+#include <iomanip>
 using namespace std;
+
+void pascal(int);
+int combination(int, int);
+int factorial(int);
 
 int main()
 {
-    string str, revstr;
-    cout << "Enter a String: ";
-    getline(cin, str);
-    cin.sync();
-    revstr = str;
-    reverse(revstr.begin(), revstr.end());
-    if (revstr == str)
+    int n;
+    while (true)
     {
-        cout << "It's a palindrome string!" << endl;
+        cout << endl;
+        cout << "Enter the number of rows to print a Pascal Triangle: ";
+        cin >> n;
+        cout << endl;
+        if (n > 0 && n < 10)
+        {
+            pascal(n);
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 9!" << endl;
+        }
+    }
+}
+
+void pascal(int n)
+{
+    int k, r;
+    for (int i = 1; i <= n; i++)
+    {
+        k = 1;
+        r = 0;
+        for (int j = 1; j <= 2 * n - 1; j++)
+        {
+            if (j >= n + 1 - i && j <= n - 1 + i && k)
+            {
+                cout << " " << setfill('0') << setw(2) << combination(i - 1, r);
+                k = 0;
+                r++;
+            }
+            else
+            {
+                cout << "   ";
+                k = 1;
+            }
+        }
+        cout << endl;
+    }
+}
+
+int combination(int n, int r)
+{
+    return factorial(n) / (factorial(n - r) * factorial(r));
+}
+
+int factorial(int n)
+{
+    if (n > 0)
+    {
+        return n * factorial(n - 1);
     }
     else
     {
-        cout << "It's not a palindrome string!" << endl;
+        return 1;
     }
 }

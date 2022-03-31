@@ -1,90 +1,86 @@
-/* 104. Program to generate 10 distinct number in given range & store in an array */
+/* 104. Pattern #29
+
+                 *
+               * *
+             * * *
+           * * * *
+         * * * * *
+         | * * * *
+ *       |   * * *
+ * *     |     * *
+ * * *   |       *
+ * * * * |
+ * * * * *
+ * * * *
+ * * *
+ * *
+ *
+
+*/
 
 #include <iostream>
 using namespace std;
 
-void randomize(int[], int, int, int);
-bool unique(int[], int, int);
-void print(int[], int);
-
 int main()
 {
-    int min, max, size;
+    int k, n, t = 64;
     while (true)
     {
         cout << endl;
-        cout << "Enter a range (Lower Bound - Upper Bound): ";
-        cin >> min >> max;
-        if (max - min > 0)
-        {
-            break;
-        }
-        else
-        {
-            cout << endl;
-            cout << "Invalid Range!" << endl;
-        }
-    }
-    while (true)
-    {
+        cout << "Enter the number of rows: ";
+        cin >> n;
         cout << endl;
-        cout << "Enter the size of the array: ";
-        cin >> size;
-        if (size <= max - min)
+        if (n > 0 && n < 21)
         {
-            break;
+            for (int i = 1; i <= 3 * n; i++)
+            {
+                for (int j = 1; j <= 2 * n - 1; j++)
+                {
+                    if (i <= n)
+                    {
+                        if (j >= 2 * n - i)
+                        {
+                            cout << " *";
+                        }
+                        else
+                        {
+                            cout << "  ";
+                        }
+                    }
+                    else if (i <= 2 * n)
+                    {
+                        if (j == n)
+                        {
+                            cout << " |";
+                        }
+                        else if (j <= (i - n - 1) || j >= i)
+                        {
+                            cout << " *";
+                        }
+                        else
+                        {
+                            cout << "  ";
+                        }
+                    }
+                    else if (i <= 3 * n)
+                    {
+                        if (j <= 3 * n + 1 - i)
+                        {
+                            cout << " *";
+                        }
+                        else
+                        {
+                            cout << "  ";
+                        }
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
         }
         else
         {
-            cout << endl;
-            cout << "Invalid Size!" << endl;
+            cout << "Please enter a value from 1 to 20!" << endl;
         }
     }
-    int array[size];
-    randomize(array, min, max, size);
-    print(array, size);
-}
-
-void randomize(int array[], int min, int max, int size)
-{
-    int value;
-    srand(time(0));
-    for (int i = 0; i < size; i++)
-    {
-        value = (rand() % (max + 1 - min)) + min;
-        if (unique(array, i - 1, value))
-        {
-            array[i] = value;
-        }
-        else
-        {
-            i--;
-        }
-    }
-}
-
-bool unique(int array[], int size, int value)
-{
-    int flag = true;
-    for (int i = 0; i < size; i++)
-    {
-        if (array[i] == value)
-        {
-            flag = false;
-            break;
-        }
-    }
-    return flag;
-}
-
-void print(int array[], int size)
-{
-    cout << endl;
-    cout << "The random elements of array are:" << endl;
-    cout << endl;
-    for (int i = 0; i < size; i++)
-    {
-        cout << array[i] << " ";
-    }
-    cout << endl;
 }

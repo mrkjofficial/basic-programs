@@ -1,56 +1,32 @@
-/* 46. Program to convert from Binary to Decimal (upto 10 digits input) */
+/* 46. Program to print fibonacci series of n numbers with a recursive function */
 
 #include <iostream>
-#include <cmath>
-#include <conio.h>
-#define SIZE 10
 using namespace std;
 
-int getBinaryInput();
-int toDecimal(int);
+int fibonacci(int);
 
 int main()
 {
-    int bin, dec;
-    cout << "Enter a binary number: ";
-    bin = getBinaryInput();
-    dec = toDecimal(bin);
-    cout << "\nDecimal = " << dec;
+    int n;
+    cout << "Enter a value of n to print fibonacci series of n numbers: ";
+    cin >> n;
+    cout << "Fibonacci Series:" << endl;
+    cout << endl;
+    for (int i = 1; i <= n; i++)
+    {
+        cout << "\t" << fibonacci(i);
+    }
+    cout << endl;
 }
 
-int getBinaryInput()
+int fibonacci(int n)
 {
-    int ch, count = 0, bin = 0;
-    while (true)
+    if (n == 1 || n == 2)
     {
-        ch = getch();
-        if (ch >= 48 && ch <= 49 && count != SIZE)
-        {
-            cout << (char)ch;
-            bin = bin * 10 + (ch - 48);
-            count++;
-        }
-        else if (ch == 8 && count != 0)
-        {
-            bin = bin / 10;
-            cout << "\b \b";
-            count--;
-        }
-        else if (ch == 13)
-        {
-            return bin;
-        }
+        return 1;
     }
-}
-
-int toDecimal(int bin)
-{
-    int dec = 0, rem;
-    for (int i = 0; bin > 0; i++)
+    else
     {
-        rem = bin % 10;
-        dec = dec + rem * pow(2, i);
-        bin = bin / 10;
+        return (fibonacci(n - 1) + fibonacci(n - 2));
     }
-    return dec;
 }

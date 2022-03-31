@@ -1,50 +1,28 @@
-/* 48. Program to print first N prime numbers */
+/* 48. Program to print first N natural numbers with a recursive function */
 
 #include <iostream>
 using namespace std;
 
-void printPrime(int);
-bool isPrime(int);
+void generateNum(int);
 
 int main()
 {
     int n;
-    cout << "Enter a value of N to print N prime numbers: ";
+    cout << endl;
+    cout << "Enter the value of N to print N numbers: ";
     cin >> n;
-    if (n <= 0)
-    {
-        cout << "Invalid Input!";
-    }
-    else
-    {
-        printPrime(n);
-    }
+    cout << endl;
+    cout << "The N numbers are:" << endl;
+    cout << endl;
+    generateNum(n);
+    cout << endl;
 }
 
-void printPrime(int n)
+void generateNum(int n)
 {
-    int num = 2;
-    while (n > 0)
+    if (n > 0)
     {
-        if (isPrime(num))
-        {
-            cout << num << " ";
-            n--;
-        }
-        num++;
+        generateNum(n - 1);
+        cout << n << " ";
     }
-}
-
-bool isPrime(int num)
-{
-    bool flag = true;
-    flag = num == 1 ? false : true;
-    for (int i = 2; i <= num / 2; i++)
-    {
-        if (num % i == 0)
-        {
-            flag = false;
-        }
-    }
-    return flag;
 }

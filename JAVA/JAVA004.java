@@ -1,19 +1,28 @@
-/* 04. Program to print a text at any (X,Y) coordinates of the screen */
+/* 04. Program to swap two numbers */
 
 import java.util.Scanner;
 
 public class JAVA004 {
+    int x, y;
+
     public static void main(String[] args) {
-        String s;
-        int x, y;
+        JAVA004 obj = new JAVA004();
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a text to print: ");
-        s = sc.nextLine();
-        System.out.print("Enter the (X,Y) coordinates to print: ");
-        x = sc.nextInt();
-        y = sc.nextInt();
-        System.out.printf("%c[%d;%df", 0x1B, x, y);
-        System.out.print(s);
+        System.out.print("Enter two numbers: ");
+        obj.x = sc.nextInt();
+        obj.y = sc.nextInt();
+        System.out.println("Numbers before swapping:");
+        System.out.println("X = " + obj.x + " | Y = " + obj.y);
+        swap(obj);
+        System.out.println("Numbers after swapping:");
+        System.out.println("X = " + obj.x + " | Y = " + obj.y);
         sc.close();
+    }
+
+    public static void swap(JAVA004 obj) {
+        int temp;
+        temp = obj.x;
+        obj.x = obj.y;
+        obj.y = temp;
     }
 }

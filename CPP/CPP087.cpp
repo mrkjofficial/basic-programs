@@ -1,14 +1,47 @@
-/* 87. Program to print system time & date */
+/* 87. Pattern #12
+
+ * * * * * * * * *
+   * * * * * * *
+     * * * * *
+       * * *
+         *
+
+*/
 
 #include <iostream>
-#include <iomanip>
-#include <ctime>
 using namespace std;
 
 int main()
 {
-    string days[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-    time_t now = time(0);
-    tm *ltime = localtime(&now);
-    cout << "Current Time & Date: " << setfill('0') << setw(2) << ltime->tm_hour << ":" << setfill('0') << setw(2) << ltime->tm_min << ":" << setfill('0') << setw(2) << ltime->tm_sec << " - " << days[ltime->tm_wday] << ", " << setfill('0') << setw(2) << ltime->tm_mday << "/" << setfill('0') << setw(2) << 1 + ltime->tm_mon << "/" << setfill('0') << setw(4) << 1900 + ltime->tm_year << endl;
+    int n;
+    while (true)
+    {
+        cout << endl;
+        cout << "Enter the number of rows: ";
+        cin >> n;
+        cout << endl;
+        if (n > 0 && n < 51)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= 2 * n - 1; j++)
+                {
+                    if (j >= i && j <= 2 * n - i)
+                    {
+                        cout << " *";
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 50!" << endl;
+        }
+    }
 }

@@ -1,12 +1,16 @@
-/* 23. Program to print first 10 odd natural numbers */
+/* 23. Program to calculate sum of first N even natural numbers */
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    for (int i = 0; i < 10; i++)
+    int n, sum = 0;
+    cout << "Enter a value to print sum of first N even natural numbers: ";
+    cin >> n;
+    for (int i = 1; i <= n; i++)
     {
-        cout << 2 * i + 1 << " ";
+        sum = sum + 2 * i;
     }
+    cout << "Sum of first " << n << " even natural numbers is " << sum;
 }

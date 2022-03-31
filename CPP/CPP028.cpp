@@ -1,16 +1,17 @@
-/* 28. Program to print table of user’s choice */
+/* 28. Program to reverse a number */
 
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
 int main()
 {
-    int num;
-    printf("Enter a number to print its table: ");
-    scanf("%d", &num);
-    for (int i = 1; i <= 10; i++)
+    int num, rNum = 0;
+    cout << "Enter a number: ";
+    cin >> num;
+    for (int i = 0; num != 0; i++)
     {
-        cout << num << " x " << setw(2) << setfill('0') << i << " = " << num * i << endl;
+        rNum = rNum * 10 + (num % 10);
+        num = num / 10;
     }
+    cout << "Reversed Number = " << rNum;
 }

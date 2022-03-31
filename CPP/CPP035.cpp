@@ -1,15 +1,20 @@
-/* 35. Program to count digits of a given number */
+/* 35. Program to print all prime factors of a given number */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
-    int digit = 0, num;
-    cout<<"Enter a number: ";
-    cin>>num;
-    while(num!=0){
-        num=num/10;
-        digit++;
+int main()
+{
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "The prime factors are as follows:\n";
+    for (int i = 2; num > 1; i++)
+    {
+        while (num % i == 0)
+        {
+            cout << i << "\t";
+            num = num / i;
+        }
     }
-    cout<<"It is a "<<digit<<"-digit number.";
 }

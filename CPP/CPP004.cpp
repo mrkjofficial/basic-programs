@@ -1,28 +1,26 @@
-/* 04. Program to print a text at any (X,Y) coordinates of the screen */
+/* 04. Program to swap two numbers */
 
 #include <iostream>
-#include <windows.h>
 using namespace std;
 
-void gotoxy(int, int);
+void swap(int *, int *);
 
 int main()
 {
-    string s;
     int x, y;
-    cout << "Enter a text to print: ";
-    getline(cin, s);
-    cin.sync();
-    cout << "Enter the (X,Y) coordinates to print: ";
+    cout << "Enter two numbers: ";
     cin >> x >> y;
-    gotoxy(x, y);
-    cout << s;
+    cout << "Numbers before swapping:" << endl;
+    cout << "X = " << x << " | Y = " << y << endl;
+    swap(&x, &y);
+    cout << "Numbers after swapping:" << endl;
+    cout << "X = " << x << " | Y = " << y << endl;
 }
 
-void gotoxy(int x, int y)
+void swap(int *x, int *y)
 {
-    COORD c;
-    c.X = x;
-    c.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
 }

@@ -1,10 +1,10 @@
-/* 82. Pattern #32
+/* 82. Pattern #7
 
- A B C D E F G H I
- A B C D   F G H I
- A B C       G H I
- A B           H I
- A               I
+ * * * * * * * * *
+ * * * *   * * * *
+ * * *       * * *
+ * *           * *
+ *               *
 
 */
 
@@ -13,29 +13,26 @@ using namespace std;
 
 int main()
 {
-    int k, n;
+    int n;
     while (true)
     {
         cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
         cout << endl;
-        if (n > 0 && n < 14)
+        if (n > 0 && n < 51)
         {
             for (int i = 1; i <= n; i++)
             {
-                k = 65;
                 for (int j = 1; j <= 2 * n - 1; j++)
                 {
                     if (j <= n + 1 - i || j >= n - 1 + i)
                     {
-                        cout << " " << (char)k;
-                        k++;
+                        cout << " *";
                     }
                     else
                     {
                         cout << "  ";
-                        k++;
                     }
                 }
                 cout << endl;
@@ -44,7 +41,7 @@ int main()
         }
         else
         {
-            cout << "Please enter a value from 1 to 13!" << endl;
+            cout << "Please enter a value from 1 to 50!" << endl;
         }
     }
 }

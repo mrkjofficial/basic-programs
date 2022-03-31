@@ -1,62 +1,70 @@
-/* 47. Program to convert from Binary to Decimal (Extended Range) */
+/* 47. Program to sort an array with a recursive function */
 
 #include <iostream>
-#include <cmath>
-#include <conio.h>
-#define SIZE 64
 using namespace std;
 
-void getBinaryInput(char *);
-unsigned long long int toDecimal(char *);
+void input(int[], int);
+void print(int[], int);
+void sort(int[], int);
+int getMaxIndex(int[], int);
 
 int main()
 {
-    char bin[SIZE];
-    unsigned long long int dec;
-    cout << "Enter a binary number: ";
-    getBinaryInput(bin);
-    dec = toDecimal(bin);
-    cout << "\nDecimal = " << dec;
+    int size;
+    cout << endl;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+    int array[size];
+    cout << endl;
+    input(array, size);
+    sort(array, size);
+    print(array, size);
 }
 
-void getBinaryInput(char *bin)
+void input(int array[], int size)
 {
-    int ch, i = 0;
-    while (true)
+    cout << "Enter the array elements:" << endl;
+    cout << endl;
+    for (int i = 0; i < size; i++)
     {
-        ch = getch();
-        if (ch >= 48 && ch <= 49 && i != SIZE)
-        {
-            cout << (char)ch;
-            bin[i] = (char)ch;
-            i++;
-        }
-        else if (ch == 8 && i != 0)
-        {
-            bin[i - 1] = '\0';
-            cout << "\b \b";
-            i--;
-        }
-        else if (ch == 13)
-        {
-            break;
-        }
+        cin >> array[i];
+    }
+    cout << endl;
+}
+
+void print(int array[], int size)
+{
+    cout << "The array elements are:" << endl;
+    cout << endl;
+    for (int i = 0; i < size; i++)
+    {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+}
+
+void sort(int array[], int size)
+{
+    if (size > 1)
+    {
+        int mIndex, temp;
+        mIndex = getMaxIndex(array, size);
+        temp = array[size - 1];
+        array[size - 1] = array[mIndex];
+        array[mIndex] = temp;
+        sort(array, size - 1);
     }
 }
 
-unsigned long long int toDecimal(char *bin)
+int getMaxIndex(int array[], int size)
 {
-    unsigned long long int dec = 0;
-    for (int i = 0; bin[i] != '\0'; i++)
+    int mIndex = 0;
+    for (int i = 1; i < size; i++)
     {
-        if (bin[i] == '0')
+        if (array[mIndex] < array[i])
         {
-            dec = dec * 2 + 0;
-        }
-        else
-        {
-            dec = dec * 2 + 1;
+            mIndex = i;
         }
     }
-    return dec;
+    return mIndex;
 }
