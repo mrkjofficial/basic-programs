@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     int num;
-    cout << "Enter a value to print N even natural numbers: ";
+    cout << "Enter a value to print N odd natural numbers: ";
     cin >> num;
     for (int i = 0; i < num; i++)
     {
