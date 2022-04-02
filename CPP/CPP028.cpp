@@ -8,7 +8,7 @@ int main()
     int num, rNum = 0;
     cout << "Enter a number: ";
     cin >> num;
-    for (int i = 0; num != 0; i++)
+    while (num != 0)
     {
         rNum = rNum * 10 + (num % 10);
         num = num / 10;

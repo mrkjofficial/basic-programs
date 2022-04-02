@@ -10,6 +10,7 @@ public class JAVA010 {
         x = sc.nextInt();
         y = sc.nextInt();
         z = sc.nextInt();
+        sc.close();
         if (x > y) {
             if (x > z) {
                 System.out.println(x + " is greatest.");
@@ -25,6 +26,5 @@ public class JAVA010 {
         } else {
             System.out.println("All three numbers are equal.");
         }
-        sc.close();
     }
 }

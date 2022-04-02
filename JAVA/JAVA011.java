@@ -1,7 +1,6 @@
 /* 11. Program to calculate roots of a quadratic equation */
 
 import java.util.Scanner;
-import java.lang.Math;
 
 public class JAVA011 {
     public static void main(String[] args) {

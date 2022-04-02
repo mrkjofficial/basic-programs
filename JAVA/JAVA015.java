@@ -8,9 +8,9 @@ public class JAVA015 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a value to print N even natural numbers: ");
         n = sc.nextInt();
+        sc.close();
         for (int i = 1; i <= n; i++) {
             System.out.print(2 * i + " ");
         }
-        sc.close();
     }
 }

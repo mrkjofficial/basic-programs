@@ -8,9 +8,9 @@ public class JAVA017 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a value to print N even natural numbers in reverse: ");
         n = sc.nextInt();
+        sc.close();
         for (int i = n; i > 0; i--) {
             System.out.print(2 * i + " ");
         }
-        sc.close();
     }
 }

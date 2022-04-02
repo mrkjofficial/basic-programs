@@ -8,9 +8,9 @@ public class JAVA019 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number to print its table: ");
         num = sc.nextInt();
+        sc.close();
         for (int i = 1; i <= 10; i++) {
             System.out.println(String.format("%02d", num) + " x " + String.format("%02d", i) + " = " + String.format("%02d", num * i));
         }
-        sc.close();
     }
 }

@@ -9,7 +9,7 @@ public class JAVA002 {
         System.out.print("Enter two numbers: ");
         a = sc.nextInt();
         b = sc.nextInt();
-        System.out.println(a + " + " + b + " = " + (a + b));
         sc.close();
+        System.out.println(a + " + " + b + " = " + (a + b));
     }
 }

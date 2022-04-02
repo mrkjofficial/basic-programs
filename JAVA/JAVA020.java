@@ -8,10 +8,10 @@ public class JAVA020 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a value to print sum of first N natural numbers: ");
         n = sc.nextInt();
+        sc.close();
         for (int i = 1; i <= n; i++) {
             sum = sum + i;
         }
         System.out.println("Sum of first " + n + " natural numbers is " + sum);
-        sc.close();
     }
 }

@@ -9,6 +9,7 @@ public class JAVA009 {
         System.out.print("Enter two numbers: ");
         x = sc.nextInt();
         y = sc.nextInt();
+        sc.close();
         if (x > y) {
             System.out.println(x + " is greater than " + y + ".");
         } else if (x < y) {
@@ -16,6 +17,5 @@ public class JAVA009 {
         } else {
             System.out.println(x + " is equal to " + y + ".");
         }
-        sc.close();
     }
 }

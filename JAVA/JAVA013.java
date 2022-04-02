@@ -8,9 +8,9 @@ public class JAVA013 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a value to print N natural numbers: ");
         n = sc.nextInt();
+        sc.close();
         for (int i = 1; i <= n; i++) {
             System.out.print(i + " ");
         }
-        sc.close();
     }
 }

@@ -11,8 +11,8 @@ public class JAVA003 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter radius: ");
         r = sc.nextInt();
+        sc.close();
         a = PI * (r * r);
         System.out.println("Area = " + a);
-        sc.close();
     }
 }

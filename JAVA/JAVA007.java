@@ -8,11 +8,11 @@ public class JAVA007 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number: ");
         num = sc.nextInt();
+        sc.close();
         if (num / 2 * 2 != num) {
             System.out.println(num + " is an odd number.");
         } else {
             System.out.println(num + " is an even number.");
         }
-        sc.close();
     }
 }
