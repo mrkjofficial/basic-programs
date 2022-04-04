@@ -1,6 +1,7 @@
 /* 25. Program to calculate x power y i.e., x^y */
 
 import java.util.Scanner;
+import static java.lang.Math.pow;;
 
 public class JAVA025 {
     public static void main(String[] args) {
@@ -11,6 +12,6 @@ public class JAVA025 {
         System.out.print("Enter its power: ");
         y = sc.nextInt();
         sc.close();
-        System.out.println("Result = " + (int) Math.pow(x, y));
+        System.out.println("Result = " + (int) pow(x, y));
     }
 }

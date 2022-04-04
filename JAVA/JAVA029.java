@@ -1,5 +1,7 @@
 /* 29. Program to print all Armstrong numbers under 1000 */
 
+import static java.lang.Math.pow;
+
 public class JAVA029 {
     public static void main(String[] args) {
         int num, newNum, rem, temp;
@@ -9,7 +11,7 @@ public class JAVA029 {
             newNum = 0;
             while (temp != 0) {
                 rem = temp % 10;
-                newNum = newNum + (int) Math.pow(rem, 3);
+                newNum = newNum + (int) pow(rem, 3);
                 temp = temp / 10;
             }
             if (newNum == num) {

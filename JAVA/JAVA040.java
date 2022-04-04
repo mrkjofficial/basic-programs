@@ -1,6 +1,7 @@
 /* 40. Program to convert from Binary to Decimal (Extended Range) */
 
 import java.util.Scanner;
+import static java.lang.Math.pow;
 
 public class JAVA040 {
     public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class JAVA040 {
         long dec = 0, rem;
         for (int i = 0; bin > 0; i++) {
             rem = bin % 2;
-            dec += rem * (long) Math.pow(2, i);
+            dec += rem * (long) pow(2, i);
             bin = bin / 2;
         }
         return dec;

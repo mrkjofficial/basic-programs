@@ -1,10 +1,9 @@
 /* 03. Program to calculate area of a circle */
 
 import java.util.Scanner;
+import static java.lang.Math.PI;
 
 public class JAVA003 {
-    final static double PI = 3.14;
-
     public static void main(String[] args) {
         int r;
         double a;

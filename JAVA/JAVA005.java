@@ -3,7 +3,7 @@
 import java.util.Scanner;
 
 public class JAVA005 {
-    int x, y;
+    private int x, y;
 
     public static void main(String[] args) {
         JAVA005 obj = new JAVA005();
