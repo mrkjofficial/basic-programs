@@ -10,7 +10,7 @@ public class JAVA019 {
         num = sc.nextInt();
         sc.close();
         for (int i = 1; i <= 10; i++) {
-            System.out.println(String.format("%02d", num) + " x " + String.format("%02d", i) + " = " + String.format("%02d", num * i));
+            System.out.println(String.format("%02d x %02d = %02d", num, i, num * i));
         }
     }
 }

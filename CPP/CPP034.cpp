@@ -8,7 +8,7 @@ int main()
     int x, y;
     cout << "Enter a range to print prime numbers: ";
     cin >> x >> y;
-    cout << "The prime numbers are as follows:\n";
+    cout << "The prime numbers are as follows:" << endl;
     int ub = x > y ? x : y;
     int lb = x < y ? x : y;
     int j;

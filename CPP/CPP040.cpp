@@ -16,7 +16,8 @@ int main()
     cout << "Enter a binary number: ";
     getBinaryInput(bin);
     dec = toDecimal(bin);
-    cout << "\nDecimal = " << dec;
+    cout << endl;
+    cout << "Decimal = " << dec;
 }
 
 void getBinaryInput(char *bin)

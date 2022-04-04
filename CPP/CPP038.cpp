@@ -10,13 +10,11 @@ int nextPrime(int);
 int main()
 {
     int n;
-    bool flag = true;
+    bool flag = false;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number to represent it with a pair of prime numbers: ";
         cin >> n;
-        cout << endl;
         if (n > 0 && n < 100)
         {
             for (int i = 2; i <= (n - i); i = nextPrime(i))
@@ -24,7 +22,7 @@ int main()
                 if (isPrime(n - i))
                 {
                     cout << setfill('0') << setw(2) << i << " + " << setfill('0') << setw(2) << (n - i) << " = " << setfill('0') << setw(2) << n << endl;
-                    flag = 1;
+                    flag = true;
                 }
             }
             if (!flag)

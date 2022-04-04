@@ -9,7 +9,7 @@ int main()
     bool flag;
     cout << "Enter a number to print co-prime numbers: ";
     cin >> n;
-    cout << "The co-prime numbers are as follows:\n";
+    cout << "The co-prime numbers are as follows:" << endl;
     while (true)
     {
         for (int x = 2; x <= y; x++)

@@ -8,7 +8,7 @@ int main()
     int num;
     cout << "Enter a number: ";
     cin >> num;
-    cout << "The prime factors are as follows:\n";
+    cout << "The prime factors are as follows:" << endl;
     for (int i = 2; num > 1; i++)
     {
         while (num % i == 0)
