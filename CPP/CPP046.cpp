@@ -11,12 +11,10 @@ int main()
     cout << "Enter a value of n to print fibonacci series of n numbers: ";
     cin >> n;
     cout << "Fibonacci Series:" << endl;
-    cout << endl;
     for (int i = 1; i <= n; i++)
     {
         cout << "\t" << fibonacci(i);
     }
-    cout << endl;
 }
 
 int fibonacci(int n)

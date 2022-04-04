@@ -14,7 +14,7 @@ int main()
     {
         s += sum(i);
     }
-    cout << "Sum of " << n << " numbers is " << s << "!";
+    cout << "Sum of " << n << " numbers in the series is " << s << "!";
 }
 
 int sum(int n)
