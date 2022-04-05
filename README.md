@@ -80,9 +80,9 @@
 
 #### 40. Program to convert from Binary to Decimal (Extended Range)
 
-#### 41. Program to print first n positive numbers with exactly two bits set (exactly two 1's in Binary Representation) (Logic #1)
+#### 41. Program to print first n positive numbers with exactly two bits set (Binary 1's) (Logic #1)
 
-#### 42. Program to print first n positive numbers with exactly two bits set (exactly two 1's in Binary Representation) (Logic #2)
+#### 42. Program to print first n positive numbers with exactly two bits set (Binary 1's) (Logic #2)
 
 #### 43. Program to print 1 + (1+2) + (1+2+3) + … + (1+2+3+…+N)
 
