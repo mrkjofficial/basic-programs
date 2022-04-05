@@ -8,12 +8,10 @@ int sumOfDigits(int);
 int main()
 {
     int num, sum = 0;
-    cout << endl;
     cout << "Enter a number: ";
     cin >> num;
     sum = sumOfDigits(num);
-    cout << endl;
-    cout << "Sum Of Digits: " << sum << endl;
+    cout << "Sum of Digits: " << sum << endl;
 }
 
 int sumOfDigits(int num)

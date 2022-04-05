@@ -8,14 +8,10 @@ void generateNum(int);
 int main()
 {
     int n;
-    cout << endl;
-    cout << "Enter the value of N to print N numbers: ";
+    cout << "Enter the value of N to print N numbers in reverse: ";
     cin >> n;
-    cout << endl;
     cout << "The N numbers are:" << endl;
-    cout << endl;
     generateNum(n);
-    cout << endl;
 }
 
 void generateNum(int n)
