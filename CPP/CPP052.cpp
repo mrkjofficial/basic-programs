@@ -9,11 +9,9 @@ int sumOfSquares(int);
 int main()
 {
     int n, sum = 0;
-    cout << endl;
     cout << "Enter the value of N to print the sum of squares of first N natural numbers: ";
     cin >> n;
     sum = sumOfSquares(n);
-    cout << endl;
     cout << "Sum Of Squares: " << sum << endl;
 }
 

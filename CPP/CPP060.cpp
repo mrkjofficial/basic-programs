@@ -1,4 +1,4 @@
-/* 60. Program to generate 10 distinct number in given range & store in an array */
+/* 60. Program to generate distinct numbers in given range & store in an array */
 
 #include <iostream>
 using namespace std;
@@ -12,7 +12,6 @@ int main()
     int min, max, size;
     while (true)
     {
-        cout << endl;
         cout << "Enter a range (Lower Bound - Upper Bound): ";
         cin >> min >> max;
         if (max - min > 0)
@@ -21,13 +20,11 @@ int main()
         }
         else
         {
-            cout << endl;
             cout << "Invalid Range!" << endl;
         }
     }
     while (true)
     {
-        cout << endl;
         cout << "Enter the size of the array: ";
         cin >> size;
         if (size <= max - min)
@@ -36,7 +33,6 @@ int main()
         }
         else
         {
-            cout << endl;
             cout << "Invalid Size!" << endl;
         }
     }
@@ -65,7 +61,7 @@ void randomize(int array[], int min, int max, int size)
 
 bool unique(int array[], int size, int value)
 {
-    int flag = true;
+    bool flag = true;
     for (int i = 0; i < size; i++)
     {
         if (array[i] == value)
@@ -79,12 +75,9 @@ bool unique(int array[], int size, int value)
 
 void print(int array[], int size)
 {
-    cout << endl;
     cout << "The random elements of array are:" << endl;
-    cout << endl;
     for (int i = 0; i < size; i++)
     {
         cout << array[i] << " ";
     }
-    cout << endl;
 }

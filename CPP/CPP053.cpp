@@ -9,11 +9,9 @@ int sumOfCubes(int);
 int main()
 {
     int n, sum = 0;
-    cout << endl;
     cout << "Enter the value of N to print the sum of cubes of first N natural numbers: ";
     cin >> n;
     sum = sumOfCubes(n);
-    cout << endl;
     cout << "Sum Of Cubes: " << sum << endl;
 }
 

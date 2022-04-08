@@ -9,11 +9,9 @@ int sumOfDigitSquare(int);
 int main()
 {
     int num, sum = 0;
-    cout << endl;
     cout << "Enter a number: ";
     cin >> num;
     sum = sumOfDigitSquare(num);
-    cout << endl;
     cout << "Sum Of Digit Squares: " << sum << endl;
 }
 

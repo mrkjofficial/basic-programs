@@ -110,15 +110,15 @@
 
 #### 55. Program to calculate sum of all even numbers and sum of all odd numbers in an array
 
-#### 56. Program to find greatest among 10 numbers in an array
+#### 56. Program to find greatest among the numbers in an array
 
-#### 57. Program to find smallest among 10 numbers in an array
+#### 57. Program to find smallest among the numbers in an array
 
-#### 58. Program to add two matrices, each of order 3×3
+#### 58. Program to add two matrices
 
-#### 59. Program to multiply two matrices, each of order 3×3
+#### 59. Program to multiply two matrices
 
-#### 60. Program to generate 10 distinct number in given range & store in an array
+#### 60. Program to generate distinct numbers in given range & store in an array
 
 #### 61. Program to rotate an array by n positions
 
