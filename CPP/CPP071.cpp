@@ -8,11 +8,9 @@ int countVowels(string);
 int main()
 {
     string str;
-    cout << endl;
     cout << "Enter a String: ";
     getline(cin, str);
     cin.sync();
-    cout << endl;
     cout << "Number of Vowels: " << countVowels(str) << endl;
 }
 
