@@ -3,20 +3,18 @@
 #include <iostream>
 using namespace std;
 
-string wordCount(string, string);
+string revStringWords(string, string);
 
 int main()
 {
     string str;
-    cout << endl;
     cout << "Enter a String: ";
     getline(cin, str);
     cin.sync();
-    cout << endl;
-    cout << "Reversed String (Word Wise): " << wordCount(str, " ") << endl;
+    cout << "Reversed String (Word Wise): " << revStringWords(str, " ") << endl;
 }
 
-string wordCount(string str, string del)
+string revStringWords(string str, string del)
 {
     string revstr;
     int i = 0;
@@ -24,7 +22,8 @@ string wordCount(string str, string del)
     {
         i = str.rfind(del);
         revstr += str.substr(i + 1) + " ";
-        if(i != -1){
+        if (i != -1)
+        {
             str.erase(i);
         }
     }

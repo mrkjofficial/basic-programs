@@ -3,16 +3,14 @@
 #include <iostream>
 using namespace std;
 
-bool countVowels(string);
+bool isAlphaNumeric(string);
 int main()
 {
     string str;
-    cout << endl;
     cout << "Enter a String: ";
     getline(cin, str);
     cin.sync();
-    cout << endl;
-    if (countVowels(str))
+    if (isAlphaNumeric(str))
     {
         cout << "The string is AlphaNumeric!" << endl;
     }
@@ -22,7 +20,7 @@ int main()
     }
 }
 
-bool countVowels(string str)
+bool isAlphaNumeric(string str)
 {
     bool flag = true;
     for (int i = 0; i < str.length(); i++)

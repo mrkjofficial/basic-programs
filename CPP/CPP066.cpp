@@ -12,7 +12,7 @@ int main()
     cin.sync();
     revstr = str;
     reverse(revstr.begin(), revstr.end());
-    if (revstr == str)
+    if (str == revstr)
     {
         cout << "It's a palindrome string!" << endl;
     }

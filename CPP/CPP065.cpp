@@ -6,10 +6,19 @@ using namespace std;
 
 int main()
 {
-    string str;
-    cout << "Enter a String: ";
-    getline(cin, str);
-    cin.sync();
-    sort(str.begin(), str.end());
-    cout << "Sorted String: " << str << endl;
+    int size;
+    cout << "Enter the size of the Array: ";
+    cin >> size;
+    string strArray[size];
+    cout << "Enter " << size << " Strings:" << endl;
+    for (int i = 0; i < size; i++)
+    {
+        cin >> strArray[i];
+    }
+    sort(strArray, strArray + size);
+    cout << "Sorted String: " << endl;
+    for (int i = 0; i < size; i++)
+    {
+        cout << strArray[i] << " ";
+    }
 }

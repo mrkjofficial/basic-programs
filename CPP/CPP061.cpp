@@ -10,19 +10,15 @@ void print(int[], int);
 int main()
 {
     int choice, rotation, size;
-    cout << endl;
     cout << "Enter the size of the array: ";
     cin >> size;
-    cout << endl;
     int array[size];
     input(array, size);
     cout << "Choose Direction for Rotation:" << endl;
     cout << "1. Left" << endl;
     cout << "2. Right" << endl;
-    cout << endl;
     cout << "Enter your choice: ";
     cin >> choice;
-    cout << endl;
     while (true)
     {
         switch (choice)
@@ -40,7 +36,7 @@ int main()
             print(array, size);
             exit(0);
         default:
-            cout << "Invalid Choice!";
+            cout << "Invalid Choice!" << endl;
         }
     }
 }
@@ -48,12 +44,10 @@ int main()
 void input(int array[], int size)
 {
     cout << "Enter the array elements:" << endl;
-    cout << endl;
     for (int i = 0; i < size; i++)
     {
         cin >> array[i];
     }
-    cout << endl;
 }
 
 void rotate(int array[], int choice, int rotation, int size)
@@ -85,12 +79,9 @@ void rotate(int array[], int choice, int rotation, int size)
 
 void print(int array[], int size)
 {
-    cout << endl;
     cout << "The array elements are:" << endl;
-    cout << endl;
     for (int i = 0; i < size; i++)
     {
         cout << array[i] << " ";
     }
-    cout << endl;
 }
