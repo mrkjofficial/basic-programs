@@ -1,17 +1,19 @@
 /* 74. Program to calculate GPA using array of objects */
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 class subject
 {
 private:
-    int subCode, hours, marks;
+    string subCode;
+    int hours, marks;
     char grade;
     float credits, qPoints;
 
 public:
-    void addDetails(int subCode, int marks, int hours)
+    void addDetails(string subCode, int marks, int hours)
     {
         if (marks <= 100 && marks >= 90)
         {
@@ -44,7 +46,7 @@ public:
         qPoints = hours * credits;
     }
 
-    int getsubCode()
+    string getsubCode()
     {
         return subCode;
     }
@@ -121,7 +123,8 @@ void addSubject(subject *sub, int &index, int &size)
         cout << "Storage Full!" << endl;
         return;
     }
-    int subCode, hours, marks;
+    string subCode;
+    int hours, marks;
     cout << endl;
     cout << "Subject - " << index + 1 << endl;
     cout << endl;
@@ -151,11 +154,9 @@ void viewGPA(subject *sub, int &index)
     {
         cout << endl;
         cout << "Sl. No. \t Subject Code \t Marks \t Grade \t Credits \t Hours \t Quality Points" << endl;
-        cout << "---------------------------------------------------------------------------------------" << endl;
-        cout << endl;
         for (int i = 0; i < index; i++)
         {
-            cout << "   " << (i + 1) << " \t\t    " << "CS-" << sub[i].getsubCode() << " \t  " << sub[i].getMarks() << " \t   " << sub[i].getGrade() << " \t    " << sub[i].getCredits() << " \t\t   " << sub[i].getHours() << " \t       " << sub[i].getQPoints() << endl;
+            cout << "   " << (i + 1) << " \t\t    " << "CS-" << sub[i].getsubCode() << " \t  " << sub[i].getMarks() << " \t   " << sub[i].getGrade() << " \t   " << fixed << setprecision(1) << sub[i].getCredits() << " \t\t   " << sub[i].getHours() << " \t       " << setprecision(0) << sub[i].getQPoints() << endl;
             tHours += sub[i].getHours();
             tQPoints += sub[i].getQPoints();
         }
