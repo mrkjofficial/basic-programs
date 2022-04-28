@@ -233,13 +233,13 @@ void openAccount()
 
 unsigned long int generateAccountNo()
 {
-    bool flag = false;
     unsigned long int accNo;
     ifstream fin;
     fin.open("accounts.bin", ios::binary);
     srand(time(0));
     while (true)
     {
+        bool flag = false;
         accNo = (rand() % (MAX + 1 - MIN)) + MIN;
         if (!fin)
         {
@@ -361,8 +361,7 @@ bool checkCredential(char uname[], char pword[])
 
 void banking()
 {
-    int amount, choice;
-    unsigned long int accNo;
+    int choice;
     while (true)
     {
         cout << endl;
@@ -439,7 +438,6 @@ void updateBalance(int option)
                 cout << endl;
                 cout << "Enter a amount to withdraw: ";
                 cin >> amount;
-                int bal = fetchAcc.getBalance() - amount;
                 if ((fetchAcc.getBalance() - amount) < 0)
                 {
                     cout << endl;
