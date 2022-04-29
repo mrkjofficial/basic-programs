@@ -16,10 +16,8 @@ int main()
     int k = 0, m, n;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
-        cout << endl;
         if (n > 0 && n < 51 && n % 2 != 0)
         {
             m = (n + 1) / 2;
@@ -43,7 +41,7 @@ int main()
         }
         else
         {
-            cout << "Please enter a value from 1 to 50!" << endl;
+            cout << "Please enter an odd value from 1 to 50!" << endl;
         }
     }
 }

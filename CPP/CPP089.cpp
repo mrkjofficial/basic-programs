@@ -16,11 +16,9 @@ int main()
     int k, n;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
-        cout << endl;
-        if (n > 0 && n < 10)
+        if (n > 0 && n < 11)
         {
             k = n;
             for (int i = 1; i <= n; i++)
@@ -36,7 +34,7 @@ int main()
         }
         else
         {
-            cout << "Please enter a value from 1 to 9!" << endl;
+            cout << "Please enter a value from 1 to 10!" << endl;
         }
     }
 }
