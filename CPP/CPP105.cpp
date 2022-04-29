@@ -13,22 +13,21 @@ using namespace std;
 
 int main()
 {
-    int k, n, p;
+    int n, p;
+    bool k;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
-        cout << endl;
         if (n > 0 && n < 10)
         {
             for (int i = 1; i <= n; i++)
             {
-                k = 1;
+                k = true;
                 p = 1;
                 for (int j = 1; j <= 2 * n - 1; j++)
                 {
-                    if (j >= (n + 1) - i && j <= (n - 1) + i && k)
+                    if (j >= (n + 1) - i && j <= (n - 1) + i && k == true)
                     {
                         if (i % 2 == 0)
                         {
@@ -39,12 +38,12 @@ int main()
                             cout << " " << p;
                         }
                         p++;
-                        k = 0;
+                        k = false;
                     }
                     else
                     {
                         cout << "  ";
-                        k = 1;
+                        k = true;
                     }
                 }
                 cout << endl;

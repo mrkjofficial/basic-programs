@@ -16,10 +16,8 @@ int main()
     int k, n, t = 64;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
-        cout << endl;
         if (n > 0 && n < 7)
         {
             for (int i = 1; i <= n; i++)

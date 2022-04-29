@@ -23,13 +23,11 @@ using namespace std;
 
 int main()
 {
-    int k, n, t = 64;
+    int n;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
-        cout << endl;
         if (n > 0 && n < 21)
         {
             for (int i = 1; i <= 3 * n; i++)
