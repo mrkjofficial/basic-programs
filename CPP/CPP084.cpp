@@ -16,10 +16,8 @@ int main()
     int k, n;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
-        cout << endl;
         if (n > 0 && n < 27)
         {
             for (int i = 1; i <= n; i++)
@@ -30,13 +28,12 @@ int main()
                     if (j <= n + 1 - i || j >= n - 1 + i)
                     {
                         cout << " " << (char)k;
-                        j < n ? k++ : k--;
                     }
                     else
                     {
                         cout << "  ";
-                        j < n ? k++ : k--;
                     }
+                    j < n ? k++ : k--;
                 }
                 cout << endl;
             }

@@ -16,10 +16,8 @@ int main()
     int k = 0, m, n;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
-        cout << endl;
         if (n > 0 && n < 51)
         {
             m = (n + 1) / 2;
