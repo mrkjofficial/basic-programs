@@ -86,7 +86,7 @@ public class JAVA074 {
                     sc.close();
                     System.exit(0);
                 default:
-                    System.out.println("Invalid Option!");
+                    System.out.println(newline + "Invalid Option!");
             }
         }
     }

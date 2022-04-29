@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import static java.lang.Math.random;
 
 class Bank implements Serializable {
+    public static final String newline = System.lineSeparator();
     protected String ifsc, branch, bAddress;
 }
 
@@ -27,7 +28,7 @@ class Account extends Customer {
 
     public long openAccount(Scanner sc) {
         accountNo = generateAccountNo();
-        System.out.println("Open Account:-");
+        System.out.println(newline + "Open Account:-" + newline);
         System.out.print("Enter Name: ");
         sc.nextLine();
         cName = sc.nextLine();
@@ -63,17 +64,17 @@ class Account extends Customer {
             if (!checkUsername(username)) {
                 break;
             } else {
-                System.out.println("Username Already Exists!");
+                System.out.println(newline + "Username Already Exists!" + newline);
             }
         }
         System.out.print("Enter Password: ");
         password = sc.next();
-        System.out.println("Account No. " + accountNo + " Opened Successfully!");
+        System.out.println(newline + "Account No. " + accountNo + " Opened Successfully!");
         return accountNo;
     }
 
     public void showAccountDetails() {
-        System.out.println("Show Account Details:-");
+        System.out.println(newline + "Show Account Details:-" + newline);
         System.out.println("Name:                                    " + cName);
         System.out.println("Date of Birth:                           " + dob);
         System.out.println("Gender:                                  " + gender);
@@ -167,13 +168,12 @@ public class JAVA075 {
     public static void main(String[] args) {
         int choice;
         Scanner sc = new Scanner(System.in);
-        System.out.println("BANKING SYSTEM");
         while (true) {
-            System.out.println("Main Menu:-");
+            System.out.println(Account.newline + "Main Menu:-" + Account.newline);
             System.out.println("1. Open New Account");
             System.out.println("2. Banking");
             System.out.println("3. Exit");
-            System.out.print("Enter your Choice: ");
+            System.out.print(Account.newline + "Enter your Choice: ");
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
@@ -205,14 +205,14 @@ public class JAVA075 {
             objectOutputStream.close();
             fileOutputStream.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(Account.newline + e.getMessage());
         }
     }
 
     public static void login(Scanner sc) {
         String uname, pword;
         while (true) {
-            System.out.println("Login:-");
+            System.out.println(Account.newline + "Login:-" + Account.newline);
             System.out.print("Username: ");
             uname = sc.next();
             System.out.print("Password: ");
@@ -221,7 +221,7 @@ public class JAVA075 {
                 banking(sc);
                 return;
             } else {
-                System.out.println("Invalid Credentials!");
+                System.out.println(Account.newline + "Invalid Credentials!");
                 return;
             }
         }
@@ -237,7 +237,6 @@ public class JAVA075 {
             for (int i = 0; i < fileList.length; i++) {
                 String[] values = fileList[i].split("-");
                 if (values[1].equals(uname)) {
-                    found = true;
                     String path = "Accounts/" + fileList[i];
                     try {
                         FileInputStream fileInputStream = new FileInputStream(path);
@@ -245,8 +244,11 @@ public class JAVA075 {
                         fetchAcc = (Account) objectInputStream.readObject();
                         objectInputStream.close();
                         fileInputStream.close();
+                        if(pword.equals(fetchAcc.getPassword())){
+                            found = true;
+                        }
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        System.out.println(Account.newline + e.getMessage());
                     }
                     break;
                 }
@@ -258,18 +260,18 @@ public class JAVA075 {
     public static void banking(Scanner sc) {
         int choice;
         while (true) {
-            System.out.println("Hi, " + fetchAcc.getCName() + "!");
+            System.out.println(Account.newline + "Hi, " + fetchAcc.getCName() + "!" + Account.newline);
             System.out.println("1. Check Balance");
             System.out.println("2. Deposit");
             System.out.println("3. Withdraw");
             System.out.println("4. Show Account");
             System.out.println("5. Close Account");
             System.out.println("6. Back");
-            System.out.print("Enter your Choice: ");
+            System.out.print(Account.newline + "Enter your Choice: ");
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Available Balance: " + fetchAcc.getBalance());
+                    System.out.println(Account.newline + "Available Balance: " + fetchAcc.getBalance());
                     break;
                 case 2:
                     updateBalance(sc, 1);
@@ -286,7 +288,7 @@ public class JAVA075 {
                 case 6:
                     return;
                 default:
-                    System.out.println("Invalid Option!");
+                    System.out.println(Account.newline + "Invalid Option!");
             }
         }
     }
@@ -295,20 +297,20 @@ public class JAVA075 {
         int amount;
         String path = "Accounts/" + fetchAcc.getAccountNo() + "-" + fetchAcc.getUsername();
         if (option == 1) {
-            System.out.print("Enter a amount to deposit: ");
+            System.out.print(Account.newline + "Enter a amount to deposit: ");
             amount = sc.nextInt();
             fetchAcc.deposit(amount);
-            System.out.println("Rs. " + amount + " Deposited Successfully!");
-            System.out.println("Available Balance: " + fetchAcc.getBalance());
+            System.out.println(Account.newline + "Rs. " + amount + " Deposited Successfully!");
+            System.out.println(Account.newline + "Available Balance: " + fetchAcc.getBalance());
         } else if (option == 2) {
-            System.out.print("Enter a amount to withdraw: ");
+            System.out.print(Account.newline + "Enter a amount to withdraw: ");
             amount = sc.nextInt();
             if ((fetchAcc.getBalance() - amount) < 0) {
-                System.out.println("Insufficient Balance!");
+                System.out.println(Account.newline + "Insufficient Balance!");
             } else {
                 fetchAcc.withdraw(amount);
-                System.out.println("Rs. " + amount + " Withdrawn Successfully!");
-                System.out.println("Available Balance: " + fetchAcc.getBalance());
+                System.out.println(Account.newline + "Rs. " + amount + " Withdrawn Successfully!");
+                System.out.println(Account.newline + "Available Balance: " + fetchAcc.getBalance());
             }
         }
         try {
@@ -318,7 +320,7 @@ public class JAVA075 {
             objectOutputStream.close();
             fileOutputStream.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(Account.newline + e.getMessage());
         }
     }
 
@@ -326,9 +328,9 @@ public class JAVA075 {
         String path = "Accounts/" + fetchAcc.getAccountNo() + "-" + fetchAcc.getUsername();
         File file = new File(path);
         if (file.delete()) {
-            System.out.println("Account Closed!");
+            System.out.println(Account.newline + "Account Closed!");
         } else {
-            System.out.println("Unable to Process your Request!");
+            System.out.println(Account.newline + "Unable to Process your Request!");
         }
     }
 }
