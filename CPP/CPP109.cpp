@@ -17,10 +17,8 @@ int main()
     int k, n;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number of rows: ";
         cin >> n;
-        cout << endl;
         if (n > 0 && n < 11)
         {
             for (int i = 1; i <= n; i++)
@@ -38,7 +36,7 @@ int main()
                         cout << "  ";
                     }
                 }
-                printf("\n");
+                cout << endl;
             }
             exit(0);
         }

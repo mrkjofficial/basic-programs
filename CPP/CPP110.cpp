@@ -2,8 +2,8 @@
 
              01
           01    01
-       01    02    01      
-    01    03    03    01   
+       01    02    01
+    01    03    03    01
  01    04    06    04    01
 
 */
@@ -21,10 +21,8 @@ int main()
     int n;
     while (true)
     {
-        cout << endl;
         cout << "Enter the number of rows to print a Pascal Triangle: ";
         cin >> n;
-        cout << endl;
         if (n > 0 && n < 10)
         {
             pascal(n);
@@ -39,23 +37,24 @@ int main()
 
 void pascal(int n)
 {
-    int k, r;
+    int r;
+    bool k;
     for (int i = 1; i <= n; i++)
     {
-        k = 1;
+        k = true;
         r = 0;
         for (int j = 1; j <= 2 * n - 1; j++)
         {
             if (j >= n + 1 - i && j <= n - 1 + i && k)
             {
                 cout << " " << setfill('0') << setw(2) << combination(i - 1, r);
-                k = 0;
+                k = false;
                 r++;
             }
             else
             {
                 cout << "   ";
-                k = 1;
+                k = true;
             }
         }
         cout << endl;
