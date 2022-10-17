@@ -1,6 +1,7 @@
 /* 33. Program to print first N prime numbers */
 
 import java.util.Scanner;
+import static java.lang.Math.sqrt;
 
 public class JAVA033 {
     public static void main(String[] args) {
@@ -30,7 +31,7 @@ public class JAVA033 {
     public static boolean isPrime(int num) {
         boolean flag = true;
         flag = num == 1 ? false : true;
-        for (int i = 2; i <= num / 2; i++) {
+        for (int i = 2; i <= sqrt(num); i++) {
             if (num % i == 0) {
                 flag = false;
             }

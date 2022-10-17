@@ -1,16 +1,16 @@
 /* 32. Program to check whether a given number is prime or not */
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int main()
 {
     int num;
-    bool flag = true;
     cout << "Enter a number: ";
     cin >> num;
-    flag = num == 1 ? false : true;
-    for (int i = 2; i <= num / 2; i++)
+    bool flag = num == 1 ? false : true;
+    for (int i = 2; i <= sqrt(num); i++)
     {
         if (num % i == 0)
         {

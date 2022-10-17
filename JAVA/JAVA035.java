@@ -10,11 +10,13 @@ public class JAVA035 {
         num = sc.nextInt();
         sc.close();
         System.out.println("The prime factors are as follows:");
-        for (int i = 2; num > 1; i++) {
+        int i = 2;
+        while (num > 1) {
             while (num % i == 0) {
                 System.out.print(i + "\t");
                 num = num / i;
             }
+            i++;
         }
     }
 }

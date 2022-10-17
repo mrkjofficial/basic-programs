@@ -1,6 +1,7 @@
 /* 33. Program to print first N prime numbers */
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 void printPrime(int);
@@ -39,7 +40,7 @@ bool isPrime(int num)
 {
     bool flag = true;
     flag = num == 1 ? false : true;
-    for (int i = 2; i <= num / 2; i++)
+    for (int i = 2; i <= sqrt(num); i++)
     {
         if (num % i == 0)
         {
