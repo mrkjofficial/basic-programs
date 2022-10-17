@@ -6,16 +6,16 @@ using namespace std;
 
 int main()
 {
-    int num, newNum, rem, temp;
     cout << "Armstrong numbers under 1000 are as follows:" << endl;
-    for (num = 1; num <= 1000; num++)
+    for (int num = 1; num <= 1000; num++)
     {
-        temp = num;
-        newNum = 0;
+        int temp = num;
+        int newNum = 0;
+        int digits = to_string(num).size();
         while (temp != 0)
         {
-            rem = temp % 10;
-            newNum = newNum + pow(rem, 3);
+            int rem = temp % 10;
+            newNum = newNum + pow(rem, digits);
             temp = temp / 10;
         }
         if (newNum == num)
