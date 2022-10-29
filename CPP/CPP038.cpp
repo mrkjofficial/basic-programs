@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 using namespace std;
 
 bool isPrime(int);
@@ -21,7 +22,7 @@ int main()
             {
                 if (isPrime(n - i))
                 {
-                    cout << setfill('0') << setw(2) << i << " + " << setfill('0') << setw(2) << (n - i) << " = " << setfill('0') << setw(2) << n << endl;
+                    cout << i << " + " << (n - i) << " = " << n << endl;
                     flag = true;
                 }
             }
@@ -40,9 +41,8 @@ int main()
 
 bool isPrime(int n)
 {
-    bool flag = true;
-    flag = n == 1 ? false : true;
-    for (int i = 2; i < n / 2; i++)
+    bool flag = n == 1 ? false : true;
+    for (int i = 2; i <= sqrt(n); i++)
     {
         if (n % i == 0)
         {
@@ -54,9 +54,13 @@ bool isPrime(int n)
 
 int nextPrime(int n)
 {
-    do
+    while (true)
     {
         n++;
-    } while (!isPrime(n));
+        if (isPrime(n))
+        {
+            break;
+        }
+    }
     return n;
 }

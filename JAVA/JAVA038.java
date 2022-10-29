@@ -1,6 +1,7 @@
 /* 38. Program to print a number with a summation of 2 prime numbers */
 
 import java.util.Scanner;
+import static java.lang.Math.sqrt;
 
 public class JAVA038 {
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class JAVA038 {
             if (n > 0 && n < 100) {
                 for (int i = 2; i <= (n - i); i = nextPrime(i)) {
                     if (isPrime(n - i)) {
-                        System.out.println(String.format("%02d + %02d = %02d", i, (n - i), n));
+                        System.out.println(i + " + " + (n - i) + " = " + n);
                         flag = true;
                     }
                 }
@@ -29,9 +30,8 @@ public class JAVA038 {
     }
 
     public static boolean isPrime(int n) {
-        boolean flag = true;
-        flag = n == 1 ? false : true;
-        for (int i = 2; i < n / 2; i++) {
+        boolean flag = n == 1 ? false : true;
+        for (int i = 2; i <= sqrt(n); i++) {
             if (n % i == 0) {
                 flag = false;
             }
@@ -40,9 +40,12 @@ public class JAVA038 {
     }
 
     public static int nextPrime(int n) {
-        do {
+        while (true) {
             n++;
-        } while (!isPrime(n));
+            if (isPrime(n)) {
+                break;
+            }
+        }
         return n;
     }
 }
