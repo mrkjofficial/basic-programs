@@ -1,16 +1,13 @@
 # 39. Program to convert from Binary to Decimal (upto 10 digits input)
 
-def toDecimal(bin):
-    dec = 0
-    i = 0
-    while (bin > 0):
-        rem = bin % 10
-        dec = dec + rem * 2 ** i
-        bin = bin // 10
-        i += 1
-    return dec
-
-
-bin = int(input("Enter a binary number: "), 2)
-dec = toDecimal(bin)
-print("Decimal =", dec)
+while(True):
+    bin = input("Enter a binary number: ")
+    if (len(bin) > 10):
+        print("Binary number should be 10 digits or less!")
+    else:
+        break
+try:
+    dec = int(bin, 2)
+    print("Decimal =", dec)
+except ValueError:
+    print("Invalid Binary Number!")
