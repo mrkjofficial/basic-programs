@@ -1,0 +1,45 @@
+/* 87. Pattern #12
+
+ * * * * * * * * *
+   * * * * * * *
+     * * * * *
+       * * *
+         *
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    while (true)
+    {
+        cout << "Enter the number of rows: ";
+        cin >> n;
+        if (n > 0 && n < 51)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= 2 * n - 1; j++)
+                {
+                    if (j >= i && j <= 2 * n - i)
+                    {
+                        cout << " *";
+                    }
+                    else
+                    {
+                        cout << "  ";
+                    }
+                }
+                cout << endl;
+            }
+            exit(0);
+        }
+        else
+        {
+            cout << "Please enter a value from 1 to 50!" << endl;
+        }
+    }
+}

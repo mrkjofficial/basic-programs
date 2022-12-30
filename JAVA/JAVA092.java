@@ -1,0 +1,40 @@
+/* 92. Pattern #17
+
+ * * * * *
+ * *   * *
+ *       *
+ * *   * *
+ * * * * *
+
+*/
+
+import java.util.Scanner;
+
+public class JAVA092 {
+    public static void main(String[] args) {
+        int k = 0, m, n;
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.print("Enter the number of rows: ");
+            n = sc.nextInt();
+            if (n > 0 && n < 51 && n % 2 != 0) {
+                m = (n + 1) / 2;
+                for (int i = 1; i <= n; i++) {
+                    k += i <= m ? 1 : -1;
+                    for (int j = 1; j <= n; j++) {
+                        if (j <= m + 1 - k || j >= m - 1 + k) {
+                            System.out.print(" *");
+                        } else {
+                            System.out.print("  ");
+                        }
+                    }
+                    System.out.println();
+                }
+                sc.close();
+                System.exit(0);
+            } else {
+                System.out.println("Please enter an odd value from 1 to 50!");
+            }
+        }
+    }
+}
