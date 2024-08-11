@@ -48,7 +48,7 @@ void randomize(int array[], int min, int max, int size)
     for (int i = 0; i < size; i++)
     {
         value = (rand() % (max + 1 - min)) + min;
-        if (unique(array, i - 1, value))
+        if (unique(array, i, value))
         {
             array[i] = value;
         }

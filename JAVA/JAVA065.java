@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class JAVA065 {
     public static void main(String[] args) {
         int size;
-        String[] strArray = new String[5];
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the size of the Array: ");
         size = sc.nextInt();
+        String[] strArray = new String[size];
         System.out.println("Enter " + size + " Strings:");
         for (int i = 0; i < size; i++) {
             strArray[i] = sc.next();

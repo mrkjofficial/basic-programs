@@ -36,7 +36,7 @@ public class JAVA060 {
         int value;
         for (int i = 0; i < size; i++) {
             value = (int) (random() * (max + 1 - min)) + min;
-            if (unique(array, i - 1, value)) {
+            if (unique(array, i, value)) {
                 array[i] = value;
             } else {
                 i--;
